@@ -1,0 +1,14 @@
+.banner{
+    background: url("../bootsraps/img/Heroes.png")no-repeat center center;
+    background-size: cover;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    color: #fff;
+}
+.tips{
+    background: url("../bootsraps/img/tips.png")no-repeat center center;
+    background-size: cover;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    color: #000;
+}
