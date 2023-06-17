@@ -12,3 +12,62 @@
     padding-bottom: 20%;
     color: #000;
 }
+/* AGUNG */
+.bungkus {
+    text-align: center;
+}
+
+img{
+    width: 50%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5rem;
+    justify-content: center;
+}
+
+.agung {
+    box-shadow: 2px 2px 15px black;
+    background-color: rgb(255, 255, 255);
+    width: 20%;
+    height: 15%;
+    border-radius: 5px;
+    margin: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+}
+.willy {
+    box-shadow: 2px 2px 15px black;
+    background-color: rgb(255, 255, 255);
+    width: 225px;
+    height: 225px; 
+    border-radius: 5px;
+    margin: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+}
+.willy img {
+    object-fit: contain; /* Menggunakan properti object-fit */
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 14px;
+    margin-right: 2px;
+}
+
+.agung img {
+    object-fit: contain; /* Menggunakan properti object-fit */
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: -14px;
+    margin-right: 2px;
+}
+
+.agung h1 {
+    font-size: 25px;
+}
+/* AGUNG */

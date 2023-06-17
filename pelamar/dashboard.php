@@ -56,6 +56,57 @@
         </div>
       </div>
 
+       <!-- menun start -->
+<div class="bungkus">
+    <h1 class="rekomendasi">Rekomendasi Perusahaan Dari Kami</h1>
+    <div class="mahasiswa">
+        <div class="row">
+        <div class="agung">
+            <h1></h1>
+            <img src="img/unique.png" alt="">
+       
+        </div>
+        <div class="agung">
+            <h1></h1>
+            <img src="img/pln.png" alt="">
+       
+        </div>
+        <div class="agung">
+            <h1></h1>
+            <img src="img/astra motor.png" alt="">
+       
+        </div>
+        <div class="agung">
+            <h1></h1>
+            <img src="img/atlas.png" alt="">
+       </div>
+       <div class="agung">
+        <h1></h1>
+        <img src="img/blesing.png" alt="">
+   
+    </div>
+    <div class="agung">
+        <h1></h1>
+        <img src="img/gogo.png" alt="">
+   
+    </div>
+    <div class="agung">
+        <h1></h1>
+        <img src="img/gosha.png" alt="">
+   
+    </div>
+    <div class="agung">
+        <h1></h1>
+        <img src="../pelamar/img/khrisna.png" alt="">
+   
+    </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- menu end -->
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
 </body>
 </html>
