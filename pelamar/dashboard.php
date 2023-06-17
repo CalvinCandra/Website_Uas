@@ -157,12 +157,13 @@
 </div>
 <!-- perusahaan end -->
 
+<!-- hendra -->
 <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 flex-nowrap overflow-auto">
   <div class="col mb-4">
     <div class="card h-100">
       <img src="img/atlas.png" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title">Barista</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
@@ -170,7 +171,7 @@
   </div>
   <div class="col mb-4">
     <div class="card h-100">
-      <img src="img/atlas.png" class="card-img-top" alt="...">
+      <img src="img/astra motor.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -180,7 +181,7 @@
   </div>
   <div class="col mb-4">
     <div class="card h-100">
-      <img src="img/atlas.png" class="card-img-top" alt="...">
+      <img src="img/blesing.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -190,7 +191,7 @@
   </div>
   <div class="col mb-4">
     <div class="card h-100">
-      <img src="img/atlas.png" class="card-img-top" alt="...">
+      <img src="img/gogo.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -200,7 +201,7 @@
   </div>
   <div class="col mb-4">
     <div class="card h-100">
-      <img src="img/atlas.png" class="card-img-top" alt="...">
+      <img src="img/gosha.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -210,7 +211,7 @@
   </div>
   <div class="col mb-4">
     <div class="card h-100">
-      <img src="img/atlas.png" class="card-img-top" alt="...">
+      <img src="img/keranjang.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -220,7 +221,7 @@
   </div>
   <div class="col mb-4">
     <div class="card h-100">
-      <img src="img/atlas.png" class="card-img-top" alt="...">
+      <img src="img/pln.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -230,7 +231,7 @@
   </div>
   <div class="col mb-4">
     <div class="card h-100">
-      <img src="img/atlas.png" class="card-img-top" alt="...">
+      <img src="img/unique.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -240,7 +241,7 @@
   </div>
 
 </div>
-
+<!-- hendra -->
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
