@@ -68,9 +68,11 @@
     </div>
 
 
-       <!-- menun start -->
+       <!-- logo start -->
 <div class="bungkus">
-    <h1 class="rekomendasi">Rekomendasi Perusahaan Dari Kami</h1>
+  <div class="container teks-center">
+    <h1>Rekomendasi Perusahaan Dari Kami</h1>
+  </div>
     <div class="mahasiswa">
         <div class="row">
         <div class="agung">
@@ -116,7 +118,46 @@
     </div>
 </div>
 </div>
-<!-- menu end -->
+<!-- logo end -->
+
+<!-- perusahaan start -->
+<div class="bungkus1">
+  <div class="container teks-center">
+    <h1>Rekomendasi Perusahaan Dari Kami</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card h-100 position-relative">
+        <div class="overlay"></div>
+        <img src="img/teknologi.jpg" class="card-img-top" alt="...">
+        <div class="text-center text-white position-absolute w-100" style="top: 50%; transform: translateY(-50%); z-index: 2;">
+          <h3>Teknologi Informasi</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 position-relative">
+        <div class="overlay"></div>
+        <img src="img/penjul.jpg" class="card-img-top" alt="...">
+        <div class="text-center text-white position-absolute w-100" style="top: 50%; transform: translateY(-50%); z-index: 2;">
+          <h3>Penjualan</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 position-relative">
+        <div class="overlay"></div>
+        <img src="img/pemasar.jpg" class="card-img-top" alt="...">
+        <div class="text-center text-white position-absolute w-100" style="top: 50%; transform: translateY(-50%); z-index: 2;">
+          <h3>Pemasaran</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- perusahaan end -->
+
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
