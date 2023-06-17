@@ -70,7 +70,7 @@
 
        <!-- logo start -->
 <div class="bungkus">
-  <div class="container teks-center">
+  <div class="conten teks-center">
     <h1>Rekomendasi Perusahaan Dari Kami</h1>
   </div>
     <div class="mahasiswa">
@@ -122,7 +122,7 @@
 
 <!-- perusahaan start -->
 <div class="bungkus1">
-  <div class="container teks-center">
+  <div class="conten text-center">
     <h1>Rekomendasi Perusahaan Dari Kami</h1>
   </div>
   <div class="row">
@@ -157,7 +157,14 @@
 </div>
 <!-- perusahaan end -->
 
-
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>

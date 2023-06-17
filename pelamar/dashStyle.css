@@ -72,10 +72,15 @@ img{
 .agung h1 {
     font-size: 25px;
 }
-.container{
+.conten {
     border-bottom: 10px solid #2B1B56;
     width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px; /* Atur sesuai kebutuhan */
+    margin-bottom: 100px; /* Atur sesuai kebutuhan */
 }
+
 .bungkus1{
     text-align: center;
     margin-bottom: 200px;
