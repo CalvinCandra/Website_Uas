@@ -61,7 +61,7 @@
                 </div>
                 <div class="col-md-6">
                     <h3 class="display-4 text-center">Tips Melamar</h3>
-                    <p class="display-8">Berikut adalah tips singkat untuk melamar pekerjaan dari kami. Riset dan persiapkan diri dengan baik, perbarui resume dan surat lamaran sesuai dengan pekerjaan yang dilamar, tampilkan keahlian dan portofolio yang relevan, persiapkan diri dengan baik untuk wawancara, dan tunjukkan sikap profesional sepanjang proses melamar. Dengan menerapkan tips-tips ini, Anda dapat meningkatkan peluang sukses dalam melamar pekerjaan.</p>
+                    <p class="display-8 ">Berikut adalah tips singkat untuk melamar pekerjaan dari kami. Riset dan persiapkan diri dengan baik, perbarui resume dan surat lamaran sesuai dengan pekerjaan yang dilamar, tampilkan keahlian dan portofolio yang relevan, persiapkan diri dengan baik untuk wawancara, dan tunjukkan sikap profesional sepanjang proses melamar. Dengan menerapkan tips-tips ini, Anda dapat meningkatkan peluang sukses dalam melamar pekerjaan.</p>
                 </div>
             </div>
         </div>
