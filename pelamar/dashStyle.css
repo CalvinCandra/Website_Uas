@@ -30,7 +30,7 @@ img{
     width: 50%;
 }
 
-.row {
+.row-2 {
     display: flex;
     flex-wrap: wrap;
     max-width: 1200px;
