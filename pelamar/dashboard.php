@@ -7,7 +7,7 @@
     <!-- file Css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashStyle.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark shadow-lg fixed-top" style="background-color: #2B1B56;">
@@ -27,11 +27,11 @@
                 <a class="nav-link" href="#About">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#Tips">Tips</a>
+                <a class="nav-link" href="#tips">Tips</a>
               </li>
               <li>
                 <form class="d-flex me-3" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success rounded-circle" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                   </form>
               </li>
@@ -43,18 +43,30 @@
           </div>
         </div>
       </nav>
-      <div class="container-fluid banner">
-        <div class="container  teat-left"></div>
+
+      <div class="container-fluid banner text-left text ">
+        <div class="container"></div>
         <h4 class="display-6">Welcome</h4>
         <h3 class="display-1">Bali Job Finder</h3>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora voluptates corrupti quia possimus, sit beatae?</p>
       </div>
-      <div class="container-fluid tips">
-        <div class="container text-right">
-          <h2 class="display-3">Tips Melamar</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, ducimus, illum aperiam neque ea perferendis, laudantium dolorem maxime cumque aut nobis dolores iusto recusandae delectus?</p>
+
+      <div class="container-fluid tips" id="tips">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="#" class="logo">
+                        <img src="../bootsraps/img/logotips.png" alt="" height="500px">
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="display-4 text-center">Tips Melamar</h3>
+                    <p class="display-8">Berikut adalah tips singkat untuk melamar pekerjaan dari kami. Riset dan persiapkan diri dengan baik, perbarui resume dan surat lamaran sesuai dengan pekerjaan yang dilamar, tampilkan keahlian dan portofolio yang relevan, persiapkan diri dengan baik untuk wawancara, dan tunjukkan sikap profesional sepanjang proses melamar. Dengan menerapkan tips-tips ini, Anda dapat meningkatkan peluang sukses dalam melamar pekerjaan.</p>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
+
 
        <!-- menun start -->
 <div class="bungkus">
