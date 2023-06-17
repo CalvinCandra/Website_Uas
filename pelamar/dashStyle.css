@@ -12,6 +12,13 @@
     padding-bottom: 5%;
     color: #000;
 }
+.logo-img {
+    height: auto;
+    width: 100%; /* Adjust the width as needed */
+    max-height: 40px; /* Set the maximum height of the logo */
+    object-fit: contain; /* Preserve the aspect ratio and fit the image within the specified dimensions */
+  }
+  
 /* AGUNG */
 .bungkus {
     text-align: center;

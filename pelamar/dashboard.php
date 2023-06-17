@@ -13,7 +13,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark shadow-lg fixed-top" style="background-color: #2B1B56;">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img src="../bootsraps/img/BJF_sb.png" alt="Bali Job Finder" height="40px">
+            <img src="../bootsraps/img/BJF_sb.png" alt="Bali Job Finder" class="logo-img">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
