@@ -241,6 +241,30 @@
   </div>
 
 </div>
+
+<div class="contact" id="contact">
+            <div class="biodata">
+                <h1>CONTACT</h1>
+                    <h2>Politeknik Negeri Bali</h2>
+                    <p> <i class="fa-solid fa-location-dot"></i> Kampus Politeknik Negeri Bali, Bukit Jimbaran, Kuta Selatan, Badung - Bali 80361
+                        PO BOX 1064 Tuban</p>
+                    <p>  <i class="fa-solid fa-phone"></i> +62 (0361)701981</p>
+                    <p> <i class="fa-solid fa-envelope"></i>poltek@pnb.ac.id</p>
+            </div>
+            <div class="sosmed">
+                <h1>FOLLOW US</h1>
+                <div class="icon">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p> <b>Copyright &copy by Kelompok TOOEZ</b> </p>
+        </div>
 <!-- hendra -->
 
 

@@ -103,4 +103,67 @@ img{
     z-index: 1;
   }
 /* AGUNG */
+
+/* hen */
+/* Contact */
+.contact{
+    margin-top: 100px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 50% 50% ;
+}
+.contact .biodata{
+   margin: 0px 80px;
+   display: inline;
+   justify-content: center;
+   align-items: center;
+}
+
+.contact .biodata h1{
+    margin: 20px 0 50px 50px;
+    font-size: 20px;
+    font-family:Helvetica, sans-serif;
+}
+
+.contact .biodata h2{
+    margin: 20px 15px 20px 50px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid black;
+    font-size: 45px;
+}
+
+.contact .biodata i {
+    margin-right: 20px;
+}
+
+.contact .biodata p{
+    margin: 20px 15px 20px 50px;
+    font-size: 20px;
+}
+
+.contact .sosmed h1{
+    margin: 80px 0 10px 80px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.contact .sosmed .icon{
+    text-align: center;
+}
+.contact .sosmed i{
+    font-size: 40px;
+    margin: 30px 0 10px 50px;
+    padding: 7px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+/* footer */
+.footer{
+    font-size: 20px;
+    background-color: #f1f2f6;
+    text-align: center;
+    padding: 20px;
+}
+/* hen */
  
