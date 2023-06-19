@@ -163,8 +163,10 @@
     <div class="card h-100">
       <img src="img/atlas.png" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Barista</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">Accounting Staff</h5>
+        <p class="text-muted">PT. Kreasi Bali Prima</p>
+        <p class="card-text">Pendidikan Minimal S1 Memahami MS. Word & Excel</p>
+        <p> <i class="fa-solid fa-location-dot"></i> Bali</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
@@ -173,8 +175,10 @@
     <div class="card h-100">
       <img src="img/astra motor.png" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">Sales Excecutive</h5>
+        <p class="text-muted">PT. Astra Group</p>
+        <p class="card-text">Pendidikan SMU/Sederajat Umur Maksimal 27 Tahun</p>
+        <p> <i class="fa-solid fa-location-dot"></i> Denpasar</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
@@ -183,8 +187,10 @@
     <div class="card h-100">
       <img src="img/blesing.png" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">Administrasi Kasir</h5>
+        <p class="text-muted">Blessing Computer</p>
+        <p class="card-text">Wanita, Maksimal 28 Tahun Tidak Sedang Kuliah</p>
+        <p> <i class="fa-solid fa-location-dot"></i> Denpasar</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
@@ -193,8 +199,10 @@
     <div class="card h-100">
       <img src="img/gogo.png" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">Waiter/ Waitres</h5>
+        <p class="text-muted">Gogo Fried Chicken</p>
+        <p class="card-text">Rajin & Bertanggung Jawab Harus Memiliki KTP</p>
+        <p> <i class="fa-solid fa-location-dot"></i> Badung</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
@@ -203,8 +211,10 @@
     <div class="card h-100">
       <img src="img/gosha.png" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">Steward</h5>
+        <p class="text-muted">Gosha Kitchen & Patisserie</p>
+        <p class="card-text">Berusia 20-35 Tahun  Memiliki Pengalaman 1 Tahun</p>
+        <p> <i class="fa-solid fa-location-dot"></i> Denpasar</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
@@ -213,8 +223,10 @@
     <div class="card h-100">
       <img src="img/keranjang.png" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">Building Maintenance</h5>
+        <p class="text-muted">The Keranjang</p>
+        <p class="card-text"> Pria, Maksimal 38 Tahun Pendidikan Minimal S1</p>
+        <p> <i class="fa-solid fa-location-dot"></i> Badung</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
@@ -223,8 +235,10 @@
     <div class="card h-100">
       <img src="img/pln.png" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">Staff Administrasi</h5>
+        <p class="text-muted">PT. PLN (Persero)</p>
+        <p class="card-text">Pendidikan Minimal S1/S2 & D3/D4</p>
+        <p> <i class="fa-solid fa-location-dot"></i> Denpasar</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
@@ -233,8 +247,10 @@
     <div class="card h-100">
       <img src="img/unique.png" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">Sales Excecutive</h5>
+        <p class="text-muted">Unique Carpet & Deco</p>
+        <p class="card-text">Wanita, Maksimal 29 Tahun Pendidikan SMU/ Sederajat</p>
+        <p> <i class="fa-solid fa-location-dot"></i> Denpasar</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
@@ -242,32 +258,49 @@
 
 </div>
 
-<div class="contact" id="contact">
-            <div class="biodata">
-                <h1>CONTACT</h1>
-                    <h2>Politeknik Negeri Bali</h2>
-                    <p> <i class="fa-solid fa-location-dot"></i> Kampus Politeknik Negeri Bali, Bukit Jimbaran, Kuta Selatan, Badung - Bali 80361
-                        PO BOX 1064 Tuban</p>
-                    <p>  <i class="fa-solid fa-phone"></i> +62 (0361)701981</p>
-                    <p> <i class="fa-solid fa-envelope"></i>poltek@pnb.ac.id</p>
-            </div>
-            <div class="sosmed">
-                <h1>FOLLOW US</h1>
-                <div class="icon">
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-youtube"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-linkedin"></i>
-                </div>
-            </div>
+<footer class="bg-primary text-white pt-5 pb-4">
+  <div class="container text-center text-md-left">
+    <div class="row text-center text-md-left">
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h5 class="text-uppercase mb-4 font-weight-bold text-light">Bali Job Finder</h5>
+          <p>Sebuah website yang menyediakan informasi lowongan pekerjaan dan sekaligus berfungsi sebagai perantara antara pelamar kerja dengan perusahan, sehingga akan memudahan pelamar untuk mencari pekerjaan dan memudahkan perusahaan dalam mencari tenaga kerja yang tepat</p>
+      </div>
+      <div class="col-md-4 col-lg-3 col-xl-2 mx-auto mt-3">
+          <h5 class="text-upercase mb-4 font-weight-bold text-light">Kontak Kami</h5>
+          <p>
+            <i class="fa-brands fa-whatsapp mr-3">081353847864</i>
+            <i class="fa-solid fa-phone mr-3">(0361) 23123</i>
+            <i class="fa-solid fa-envelope mr-3">balijobfinder@gmail.com</i>
+            <i class="fa-solid fa-location-dot mr-3">Kampus Bukit Jimbaran, South Kuta, Badung Regenecy, Bali 80364</i> 
+          </p>
+      </div>
+      <hr class="mb-4">
+      <div class="row align-items-center">
+        <div class="col-md-7 col lg-8">
+        <p>Copyright @2023 All rights reserved by:
+          <a href="#" style="text-decoration: none">
+            <strong class=" text-warning">Bali Job Finder</strong>
+          </a></p>
         </div>
+    <div class="col-md-5 col-lg-4">
+      <div class="text-center text-md-right">
 
-        <div class="footer">
-            <p> <b>Copyright &copy by Kelompok TOOEZ</b> </p>
-        </div>
-<!-- hendra -->
+        <ul class="list-unstyled list-inline">
+          <li class="list-inline-item">
+            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-instagram"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
+          </li>
+        </ul>
 
+      </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
-</body>
-</html>
+    </div>
+
+  </div>
+</div>
+</footer>
