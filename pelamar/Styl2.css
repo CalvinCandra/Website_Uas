@@ -1,8 +1,7 @@
 .navbar-nav .fa-user-tie {
     font-size: 1.5rem;
-    margin-right: 20px;
-    margin-top: 7px;
-    margin-left: 20px;
+    margin-top: 0px;
+    margin-left: 5px;
 }
 .banner{
     background: url("../bootsraps/img/Heroes.png")no-repeat center center;
@@ -51,18 +50,15 @@
     height: 251px;
     margin-bottom: 20px;
   }
-  
-  .square-new img {
+.square-new img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-  
-
-  .square-new .overlay {
+}
+.square-new .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -72,18 +68,16 @@
     align-items: center;
     justify-content: center;
     background-color: #2b1b5695;
-  }
-  
-  .square-new .overlay-content {
+}
+.square-new .overlay-content {
     text-align: center;
     color: #fff;
-  }
-  
-  .square-new .overlay-content h4 {
+}
+.square-new .overlay-content h4 {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
-  }
+}
 
 /* hen */
 /* Contact */

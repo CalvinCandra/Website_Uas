@@ -7,7 +7,7 @@
     <!-- file Css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
-    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="Styl2.css">
 </head>
 <body>
 <!-- Navbar -->
@@ -34,7 +34,15 @@
               <a class="nav-link" href="Lowongan">Lowongan</a>
             </li>
            <li>
-            <i class="fa-solid fa-user-tie" style="color: #ffffff;"></i>
+           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa-solid fa-user-tie" style="color: #ffffff;"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                  <li><a class="dropdown-item" href="#">Profil</a></li>
+                  <li><a class="dropdown-item" href="#">Pengaturan</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Keluar</a></li>
+                </ul>
           </li>
         </ul>
       </div>
@@ -161,8 +169,8 @@
     </div>
   </div>
 </div>
-<!-- perusahaan end -->
 
+<!-- Lowongan Pekerjaan -->
 <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 flex-nowrap overflow-auto">
   <div class="col mb-4">
     <div class="card h-100">
@@ -249,6 +257,6 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
