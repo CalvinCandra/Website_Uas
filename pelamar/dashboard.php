@@ -29,11 +29,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="#tips">Tips</a>
               </li>
-              <li>
-                <form class="d-flex me-3" role="search">
-                    <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success rounded-circle" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                  </form>
+              <li class="nav-item">
+                <a class="nav-link" href="#tips">Lowongan</a>
               </li>
               <li>
                 <i class="fa-solid fa-user-tie fa-2x" style="color: #ffffff;"></i>
