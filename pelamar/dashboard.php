@@ -254,6 +254,53 @@
   </div>
 
 </div>
+<footer class="bg-primary text-white pt-5 pb-4">
+  <div class="container text-md-left">
+    <div class="row text-md-left">
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h5 class="text-uppercase mb-4 font-weight-bold text-light">Bali Job Finder</h5>
+          <p>Sebuah website yang menyediakan informasi lowongan pekerjaan dan sekaligus berfungsi sebagai perantara antara pelamar kerja dengan perusahan, sehingga akan memudahan pelamar untuk mencari pekerjaan dan memudahkan perusahaan dalam mencari tenaga kerja yang tepat</p>
+      </div>
+      <div class="col-md-4 col-lg-3 col-xl-2 mx-auto mt-3">
+          <h5 class="text-upercase mb-4 font-weight-bold text-light">Kontak Kami</h5>
+          <p> <i class="fa-brands fa-whatsapp pe-2"></i>081353847864 </p>
+          <p><i class="fa-solid fa-phone pe-2"></i>(0361) 23123</p>
+          <p><i class="fa-solid fa-envelope pe-2"></i>balijobfinder@gmail.com</p>
+          <p><i class="fa-solid fa-location-dot pe-3"></i>Kampus Bukit Jimbaran, South Kuta, Badung Regenecy, Bali 80364 </p>
+           
+          
+      </div>
+      <hr class="mb-4">
+      <div class="row align-items-center">
+        <div class="col-md-7 col lg-8">
+        <p>Copyright @2023 All rights reserved by:
+          <a href="#" style="text-decoration: none">
+            <strong class=" text-warning">Bali Job Finder</strong>
+          </a></p>
+        </div>
+    <div class="col-md-5 col-lg-4">
+      <div class="text-center text-md-right">
+
+        <ul class="list-unstyled list-inline">
+          <li class="list-inline-item">
+            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-instagram"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</footer>
+
 
 
 
