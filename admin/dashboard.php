@@ -1,134 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>ADMIN | Dashboard</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <?php
-    require('../admin/partial/meta_css.php');
-  ?>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Admin | Dashboard</title>
+    <?php
+      require("../admin/bahan/link_css.php");
+    ?>
+
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
 
-<!-- NAVBAR -->
-<?php
-    require('../admin/partial/header.php');
-?>
-<!--END NAVBAR -->
+<body id="page-top">
 
-<!-- SIDEBAR -->
-<?php
-    require('../admin/partial/sidebar.php');
-?>
-<!-- END SIDEBAR -->
-  
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+        <!-- Sidebar -->
+        <?php
+          require("../admin/bahan/sidebar.php");
+        ?>
+        <!-- End of Sidebar -->
 
-    <!-- Main content -->
-    <section class="content" id="home">
-      <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
 
-                <p>New Orders</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <?php
+                    require("../admin/bahan/header.php");
+                     // melakukan Pengecekan Jika User Belum Login
+                    if(!$_SESSION['admin']){
+                        echo "<script>document.location='../login.php'</script>";
+                    }
+                ?>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+                        <div class="col-lg-12 mb-4">
+
+                            <!-- Approach -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold" style="color :#2B1B56;">BALI JOB FINDER</h6>
+                                </div>
+                                <div class="card-body">
+                                
+                                    <p class="text-secondary fw-bold"> "Semakin keras saya bekerja, maka semakin banyak keberuntungan yang saya miliki." <span class="text-dark fw-bold">- <b>Thomas Jefferson</b></span> </p>
+                                    <p class="mb-0"> <i>Selamat Datang & Selamat Berkerja</i> </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
             </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+            <!-- End of Main Content -->
 
-                <p>Bounce Rate</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
+            <?php
+                require("../admin/bahan/footer.php");
+            ?>
 
-                <p>User Registrations</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-
-                <p>Unique Visitors</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
+        <!-- End of Content Wrapper -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
 
-<!-- footer -->
-<?php
-  require('../admin/partial/footer.php');
-?>
-<!-- end footer -->
+    <?php
+      require("../admin/bahan/link_js.php");
+    ?>
+
 </body>
+
 </html>

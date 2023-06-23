@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="bootsraps/css/bootstrap.css">
 
     <!-- link css -->
-    <link rel="stylesheet" href="bootsraps/styeling.css">
+    <link rel="stylesheet" href="bootsraps/tampilan.css">
     <title>LOGIN</title>
 </head>
 <body>
     <div class="wrapper p">
         <div class="container d-flex justify-content-center align-items-center vh-100">
-            <div class="row rounded-3 bg-white shadow">
+            <div class="row rounded-3 bg-white shadow-lg">
                 <div class="col-md-6 side-image">
                     <!-- img -->
                     <img src="bootsraps/img/logo_login.png" class="position-absolute img-login" alt="">
@@ -23,25 +23,27 @@
                         <h2 class="text-white h2">Bali Job Finder</h2>
                     </div>
                 </div>
-                <div class="col-md-6 d-flex justify-content-center align-items-center position-relative side-form">
+                <div class="col-md-6 d-flex justify-content-center align-items-center position-relative side-forms">
                     <div class="input-box">
                         <header class="h3 text-center font-weight-bold mb-3">LOGIN</header>
-                        <form action="cek.php" method="post">
+                        <form action="sistem/cek.php" method="post">
                             <div class="input-field">
-                                <input type="email" name="email" class="input" require autocomplete="off">
-                                <label for="">Email</label>
+                                <input oninput="inputEmail()" type="email" name="email" class="input" require autocomplete="off">
+                                <label for="" id="labelEmail">Email</label>
                             </div>
                             <div class="input-field">
-                                <input type="password" name="password" class="input" require>
-                                <label for="">Password</label>
+                                <input oninput="inputPassword()" type="password" name="password" class="input" require>
+                                <label for="" id="labelPassword">Password</label>
                             </div>
                             <div class="input-field">
                                <button type="submit" class="btn btn-primary submit" name="login">Masuk</button>
                                <p class="mt-1 text-center">Or</p>
                             </div>
                             <div class="input-field">
-                            <a class="btn" style="background-color: #F2F2F2;" role="button">
-                                <i class="fab fa-twitter me-2"></i>Login Dengan Google</a>
+                                <a class="btn" style="background-color: #F2F2F2;" role="button">
+                                  <img src="bootsraps/img/google.png" alt="" class="me-5" width="30px" height="30px" style="margin-left:-65px;">
+                                  Login Dengan Google
+                                </a>
                             </div>
                             <div class="input-field">
                               <p class="text-center mt-3">Belum Punya Akun? <a href="register.php" class="text-decoration-none">Klik Disini</a> </p>
@@ -54,6 +56,25 @@
     </div>
 
     <script src="bootsraps/js/bootstrap.js"></script>
+    <script>
+        function inputEmail(){
+            const labelEmail = document.getElementById('labelEmail')
+            if(labelEmail.value !== ''){
+                labelEmail.style.top = "-10px"
+                labelEmail.style.fontSize = "13px"
+            }            
+        }
+
+        function inputPassword(){
+            const labelPass = document.getElementById('labelPassword')
+            if(labelPass.value !== ''){
+                labelPass.style.top = "-10px"
+                labelPass.style.fontSize = "13px"
+            }
+        }
+    </script>
 </body>
 </html>
+
+
 
