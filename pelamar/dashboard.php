@@ -195,14 +195,14 @@
     </div>
   </div>
 </div>
-<footer class="bg-primary text-white pt-5 pb-4">
+<footer class="mt-3 text-white pt-5 pb-4" style="background-color : #2b1b56 ;">
   <div class="container text-md-left">
     <div class="row text-md-left">
-      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-          <h5 class="text-uppercase mb-4 font-weight-bold text-light">Bali Job Finder</h5>
-          <p>Sebuah website yang menyediakan informasi lowongan pekerjaan dan sekaligus berfungsi sebagai perantara antara pelamar kerja dengan perusahan, sehingga akan memudahan pelamar untuk mencari pekerjaan dan memudahkan perusahaan dalam mencari tenaga kerja yang tepat</p>
+    <div class="col-5 me-5" >
+        <h3>BALI JOB FINDER</h3>
+        <p>Sebuah website yang menyediakan informasi lowongan pekerjaan dan sekaligus berfungsi sebagai perantara antara pelamar kerja dengan perusahan, sehingga akan memudahan pelamar untuk mencari pekerjaan dan memudahkan perusahaan dalam mencari tenaga kerja yang tepat</p>
       </div>
-      <div class="col-md-4 col-lg-3 col-xl-2 mx-auto mt-3">
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
           <h5 class="text-upercase mb-4 font-weight-bold text-light">Kontak Kami</h5>
           <p> <i class="fa-brands fa-whatsapp pe-2"></i>081353847864 </p>
           <p><i class="fa-solid fa-phone pe-2"></i>(0361) 23123</p>
@@ -241,6 +241,7 @@
   </div>
 </div>
 </footer>
+
 
 
 
