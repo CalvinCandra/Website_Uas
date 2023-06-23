@@ -7,7 +7,7 @@
     <!-- file Css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
-    <link rel="stylesheet" href="Styl2.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <!-- Navbar -->
@@ -171,88 +171,29 @@
 </div>
 
 <!-- Lowongan Pekerjaan -->
-<div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 flex-nowrap overflow-auto">
-  <div class="col mb-4">
+<div class="judul">
+  <h3 class="section-title text-center">lowongan Pekerjaan</h3>
+</div>
+<div class="d-flex align-items-center flex-nowrap overflow-auto">
+      
+  <div class="mx-2">
     <div class="card h-100">
-      <img src="img/atlas.png" class="card-img-top" alt="...">
+      <div class="card-image">
+        <img src="img/keranjang.png" class="card-img-top" alt="...">
+      </div>
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title font-weight-bold">Staf Administrasi</h5>
+        <h4 class="card-subtitle font-weight-light">PT PLN PERSERO</h4>
+        <p class="card-text">Pendidikan minimal S1 S2&D3/D4 
+          semua jurusan (1,4,5)</p>
+        <p><i class="fa-sharp fa-solid fa-location-dot" style="color: #2b1b56;"> Denpasar</i></p>
+        <p>Rp.3.000.000,00</p>
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" type="button">Button</button>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col mb-4">
-    <div class="card h-100">
-      <img src="img/atlas.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card h-100">
-      <img src="img/atlas.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card h-100">
-      <img src="img/atlas.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card h-100">
-      <img src="img/atlas.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card h-100">
-      <img src="img/atlas.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card h-100">
-      <img src="img/atlas.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card h-100">
-      <img src="img/atlas.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-
 </div>
 <footer class="bg-primary text-white pt-5 pb-4">
   <div class="container text-md-left">

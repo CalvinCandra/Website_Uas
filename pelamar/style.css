@@ -79,6 +79,27 @@
     margin-bottom: 10px;
 }
 
+.card {
+    display: inline-block;
+    width: 300px;
+    height: 400px;
+    background-color: #f1f1f1;
+}
+.card-image {
+    height: 60%; /* Mengatur tinggi gambar menjadi 60% dari tinggi kartu */
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+  
+.card-image img {
+    max-width: 40%; /* Mengatur lebar gambar menjadi 80% dari lebar kartu */
+    max-height: 40%; /* Mengatur tinggi gambar menjadi 80% dari tinggi kartu */
+    object-fit: contain; /* Mengatur gambar agar sesuai dengan ukuran yang ditetapkan */
+    padding-top: 15px;
+    padding-left: 20px;
+}
+
 /* hen */
 /* Contact */
 .contact{
