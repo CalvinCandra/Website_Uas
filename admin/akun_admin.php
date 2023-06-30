@@ -1,6 +1,6 @@
 <?php
     include('../koneksi/koneksi.php');
-    require ("../sistem/sistem.php");
+    require ("../admin/sistem_admin.php");
 ?>
 
 <!DOCTYPE html>
@@ -77,7 +77,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn tambah" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                               Tambah Akun Admin
                             </button>
                         </div>
@@ -93,8 +93,32 @@
                                         </tr>
                                     </thead>
                                     <?php
-                                      $ambildata=mysqli_query($conn, "SELECT admin.*, users.email FROM admin INNER JOIN users ON  admin.id_users = users.id_users");
-                                      $i=1;
+                                    // menentukan batasan
+                                      $batas = 4;
+                                      // mengambil pesan halama dari url menggunakan method GET
+                                      $halaman = @$_GET['halaman'];
+                                      // berfungsi untuk meentukan halamanan awal dari data, jika 1 maka akan di buat 0, jika halaman lebih dari 1
+                                      // maka $halaman akan di kali batas dan dikurang batas
+                                      $halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;
+                                      // pengecekan jika $halaman kosong maka $posisi akan 0
+                                      if(empty($halaman)){
+                                          $posisi = 0;
+                                          $halaman = 1;
+                                      // jika ada maka halaman $poisis akan bertambah
+                                      }else{
+                                          $posisi = ($halaman - 1)*$batas;
+                                      }
+                                      
+                                      // query tb admin untuk mengecek data
+                                      $query = mysqli_query($conn, "SELECT * FROM admin");
+                                      $jmldata = mysqli_num_rows($query);
+
+                                      //melakukan pembagian antara $jmldata dengan $batas, dan nanti akan dibulatkan menggunakan fungsi ceil() 
+                                      $jmlhalaman = ceil($jmldata/$batas);
+
+                                      $ambildata=mysqli_query($conn, "SELECT * FROM admin INNER JOIN users ON  admin.id_users = users.id_users
+                                                                    LIMIT $posisi, $batas");
+                                      $i=$halaman_awal+1;
                                       while($data=mysqli_fetch_array($ambildata)){
                                 
                                     ?>
@@ -104,10 +128,10 @@
                                             <td><?php echo $data['email']?></td>
                                             <td><?php echo $data['nama_lengkap']?></td>
                                             <td>
-                                              <button type="button" class="btn update" data-toggle="modal" data-target="#edit<?=$data['id_admin']?>">
+                                              <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?=$data['id_admin']?>">
                                                 Edit
                                               </button>
-                                              <button type="button" class="btn delete" data-toggle="modal" data-target="#delete<?=$data['id_admin']?>">
+                                              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?=$data['id_admin']?>">
                                                 Delete
                                               </button>
                                             </td>
@@ -116,7 +140,7 @@
                                     <!-- EDIT Modal -->
                                     <div class="modal fade" id="edit<?=$data['id_admin']?>" tabindex="-1" aria-labelledby="exampleModalLabel"
                                       aria-hidden="true">
-                                      <div class="modal-dialog">
+                                      <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Edit Akun Perusahaan</h5>
@@ -138,7 +162,7 @@
                                               <input type="text" class="form-control" name="nama" value="<?php echo $data['nama_lengkap']?>" required>
                                             </div>
                                             <div class="form-group">
-                                              <button type="submit" class="btn update" name="updateadmin">Submit</button>
+                                              <button type="submit" class="btn btn-warning" name="updateadmin">Submit</button>
                                             </div>
 
                                           </form>
@@ -150,7 +174,7 @@
                                     <!-- DELETE Modal -->
                                     <div class="modal fade" id="delete<?=$data['id_admin']?>" tabindex="-1" aria-labelledby="exampleModalLabel"
                                       aria-hidden="true">
-                                      <div class="modal-dialog">
+                                      <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <h5 class="modal-title text-dark" id="exampleModalLabel"> <b>Hapus Akun Admin</b></h5>
@@ -165,7 +189,7 @@
                                                 <br><br>
                                                 <input type="hidden" name="ida" value=<?php echo $data['id_admin']?>>
                                                 <input type="hidden" name="ids" value=<?php echo $data['id_users']?>>
-                                                <button type="submit" class="btn delete" name="deleteadmin">Hapus</button>
+                                                <button type="submit" class="btn btn-danger" name="deleteadmin">Hapus</button>
                                               </div>
                                             </form>
                                           </div>
@@ -181,11 +205,17 @@
                                 <!-- Tampilan Pagination -->
                                 <nav aria-label="Page navigation example">
                                   <ul class="pagination justify-content-end">
-                                    <li class="page-item"><a class="page-link cus-font" href="#">Previous</a></li>
-                                    <li class="page-item"><a class="page-link cus-font" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link cus-font" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link cus-font" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link cus-font" href="#">Next</a></li>
+                                    <?php
+                                    // melakukan perulangan
+                                      for($h = 1; $h <= $jmlhalaman; $h++){
+
+                                        if($h != $halaman){
+                                          echo ("<li class='page-item'><a class='page-link cus-font' href='../admin/akun_admin.php?halaman=$h'>$h</a></li> ");
+                                        }else{
+                                          echo ("<li class='page-item'><a class='page-link cus-font' >$h</a></li> ");
+                                        }
+                                      }
+                                    ?>
                                   </ul>
                                 </nav>
                                 
@@ -222,7 +252,7 @@
                                 <input type="text" class="form-control" name="pass" placeholder="Password Admin" required>
                               </div>
                               <div class="form-group">
-                                <button type="submit" class="btn tambah" name="addadmin">Submit</button>
+                                <button type="submit" class="btn btn-primary" name="addadmin">Submit</button>
                               </div>
                             </form>
                           </div>

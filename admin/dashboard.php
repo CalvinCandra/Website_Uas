@@ -50,7 +50,15 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
                     </div>
-
+                    <?php 
+                        @$success = $_GET['success'];
+                        if($success)
+                        {             
+                            echo ('<div class="alert alert-success" role="alert">
+                                        '.$success.'
+                                    </div>');
+                        }
+                    ?>
                     <!-- Content Row -->
                     <div class="row">
                         <div class="col-lg-12 mb-4">
@@ -58,7 +66,7 @@
                             <!-- Approach -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold" style="color :#2B1B56;">BALI JOB FINDER</h6>
+                                    <h6 class="m-0 font-weight-bold" style="color :#0d6efd;">BALI JOB FINDER</h6>
                                 </div>
                                 <div class="card-body">
                                 

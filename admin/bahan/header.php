@@ -42,8 +42,8 @@
                 </div>
                 <div class="modal-body">Tekan "Logout" Untuk Logout Dashboard.</div>
                 <div class="modal-footer">
-                    <button class="btn detail" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn delete" href="../logout.php">Logout</a>
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger" href="../login/logout.php">Logout</a>
                 </div>
             </div>
         </div>

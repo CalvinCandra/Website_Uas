@@ -58,7 +58,7 @@
                             <!-- Approach -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold" style="color :#2B1B56;">BALI JOB FINDER</h6>
+                                    <h6 class="m-0 font-weight-bold" style="color :#0d6efd;">BALI JOB FINDER</h6>
                                 </div>
                                 <div class="card-body">
                                 

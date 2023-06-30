@@ -1,6 +1,6 @@
 <?php
     include('../koneksi/koneksi.php');
-    require ("../sistem/sistem.php");
+    require ("../admin/sistem_admin.php");
 ?>
 
 <!DOCTYPE html>
@@ -91,8 +91,31 @@
                                         </tr>
                                     </thead>
                                     <?php
-                                      $ambildata=mysqli_query($conn, "SELECT pelamar.*, users.email FROM pelamar INNER JOIN users ON  pelamar.id_users = users.id_users");
-                                      $i=1;
+                                      // menentukan batasan
+                                      $batas = 5;
+                                      // mengambil pesan halama dari url menggunakan method GET
+                                      $halaman = @$_GET['halaman'];
+                                      // berfungsi untuk meentukan halamanan awal dari data, jika 1 maka akan di buat 0, jika halaman lebih dari 1
+                                      // maka $halaman akan di kali batas dan dikurang batas
+                                      $halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;
+                                      // pengecekan jika $halaman kosong maka $posisi akan 0
+                                      if(empty($halaman)){
+                                          $posisi = 0;
+                                          $halaman = 1;
+                                      // jika ada maka halaman $poisis akan bertambah
+                                      }else{
+                                          $posisi = ($halaman - 1)*$batas;
+                                      }
+                                      
+                                      // query tb admin untuk mengecek data
+                                      $query = mysqli_query($conn, "SELECT * FROM penyedia");
+                                      $jmldata = mysqli_num_rows($query);
+
+                                      //melakukan pembagian antara $jmldata dengan $batas, dan nanti akan dibulatkan menggunakan fungsi ceil() 
+                                      $jmlhalaman = ceil($jmldata/$batas);
+
+                                      $ambildata=mysqli_query($conn, "SELECT * FROM pelamar INNER JOIN users ON pelamar.id_users = users.id_users ORDER by id_pelamar DESC LIMIT $posisi, $batas");
+                                      $i=$halaman_awal+1;
                                       while($data=mysqli_fetch_array($ambildata)){
                                 
                                     ?>
@@ -102,13 +125,13 @@
                                             <td><?php echo $data['email']?></td>
                                             <td><?php echo $data['nama_lengkap']?></td>
                                             <td>
-                                              <button type="button" class="btn detail" data-toggle="modal" data-target="#detail<?=$data['id_pelamar']?>">
+                                              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#detail<?=$data['id_pelamar']?>">
                                                 Detail
                                               </button>
-                                              <button type="button" class="btn update" data-toggle="modal" data-target="#edit<?=$data['id_pelamar']?>">
+                                              <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?=$data['id_pelamar']?>">
                                                 Edit
                                               </button>
-                                              <button type="button" class="btn delete" data-toggle="modal" data-target="#delete<?=$data['id_pelamar']?>">
+                                              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?=$data['id_pelamar']?>">
                                                 Delete
                                               </button>
                                             </td>
@@ -117,7 +140,7 @@
                                     <!-- DETAIL Modal -->
                                     <div class="modal fade" id="detail<?=$data['id_pelamar']?>" tabindex="-1" aria-labelledby="exampleModalLabel"
                                       aria-hidden="true">
-                                      <div class="modal-dialog">
+                                      <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Detail Akun Pelamar</h5>
@@ -164,7 +187,7 @@
                                     <!-- EDIT Modal -->
                                     <div class="modal fade" id="edit<?=$data['id_pelamar']?>" tabindex="-1" aria-labelledby="exampleModalLabel"
                                       aria-hidden="true">
-                                      <div class="modal-dialog">
+                                      <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Edit Akun Pelamar</h5>
@@ -206,7 +229,7 @@
                                               <textarea class="form-control" rows="3" name="pengalaman"><?php echo $data['pengalaman']?></textarea>
                                             </div>
                                             <div class="form-group">
-                                              <button type="submit" class="btn update" name="updatepelamar">Submit</button>
+                                              <button type="submit" class="btn btn-warning" name="updatepelamar">Submit</button>
                                             </div>
 
                                           </form>
@@ -218,7 +241,7 @@
                                     <!-- DELETE Modal -->
                                     <div class="modal fade" id="delete<?=$data['id_pelamar']?>" tabindex="-1" aria-labelledby="exampleModalLabel"
                                       aria-hidden="true">
-                                      <div class="modal-dialog">
+                                      <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <h5 class="modal-title text-dark" id="exampleModalLabel"> <b>Hapus Akun Perusahaan</b></h5>
@@ -233,7 +256,7 @@
                                                 <br><br>
                                                 <input type="hidden" name="idl" value=<?php echo $data['id_pelamar']?>>
                                                 <input type="hidden" name="ids" value=<?php echo $data['id_users']?>>
-                                                <button type="submit" class="btn delete" name="deletepelamar">Hapus</button>
+                                                <button type="submit" class="btn btn-danger" name="deletepelamar">Hapus</button>
                                               </div>
                                             </form>
                                           </div>
@@ -249,11 +272,17 @@
                                 <!-- Tampilan Pagination -->
                                 <nav aria-label="Page navigation example">
                                   <ul class="pagination justify-content-end">
-                                    <li class="page-item"><a class="page-link cus-font" href="#">Previous</a></li>
-                                    <li class="page-item"><a class="page-link cus-font" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link cus-font" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link cus-font" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link cus-font" href="#">Next</a></li>
+                                    <?php
+                                    // melakukan perulangan
+                                      for($h = 1; $h <= $jmlhalaman; $h++){
+
+                                        if($h != $halaman){
+                                          echo ("<li class='page-item'><a class='page-link cus-font' href='../admin/akun_pelamar.php?halaman=$h'>$h</a></li> ");
+                                        }else{
+                                          echo ("<li class='page-item'><a class='page-link cus-font'>$h</a></li>");
+                                        }
+                                      }
+                                    ?>
                                   </ul>
                                 </nav>
                                 
