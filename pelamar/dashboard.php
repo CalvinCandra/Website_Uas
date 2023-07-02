@@ -11,10 +11,10 @@
 </head>
 <body>
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark shadow-lg fixed-top" style="background-color: #2B1B56;">
+<nav class="navbar navbar-expand-lg navbar-light shadow-lg fixed-top" >
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="../bootsraps/img/BJF_sb.png" alt="Bali Job Finder" height="40px">
+      <img src="../bootsraps/img/blue_logo.png" alt="Bali Job Finder" height="40px">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@
             </li>
            <li>
            <a class="nav-link" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="fa-solid fa-user-tie" style="color: #ffffff;"></i>
+                  <i class="fa-solid fa-user-tie" style="color: #00000;"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                   <li><a class="dropdown-item" href="#">Profil</a></li>
@@ -48,6 +48,22 @@
       </div>
   </div>
 </nav>
+<script>
+  window.addEventListener('scroll', function() {
+  var navbar = document.querySelector('.navbar');
+  var bannerHeight = document.querySelector('.banner').offsetHeight;
+
+  if (window.pageYOffset > bannerHeight) {
+    navbar.classList.add('navbar-scrolled');
+    navbar.classList.remove('navbar-transparent');
+  } else {
+    navbar.classList.remove('navbar-scrolled');
+    navbar.classList.add('navbar-transparent');
+  }
+});
+
+</script>
+
 <!-- Banner -->
 <div class="container-fluid banner text-left">
    <h4 class="display-6">Welcome</h4>
