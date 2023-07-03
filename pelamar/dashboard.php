@@ -7,11 +7,11 @@
     <!-- file Css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
 <body>
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light shadow-lg fixed-top" >
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top" >
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <img src="../bootsraps/img/blue_logo.png" alt="Bali Job Finder" height="40px">
@@ -65,23 +65,28 @@
 </script>
 
 <!-- Banner -->
-<div class="container-fluid banner text-left">
-   <h4 class="display-6">Welcome</h4>
-   <h3 class="display-1">Bali Job Finder</h3>
-   <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora voluptates corrupti quia possimus, sit beatae?</p>
+<div class="container-fluid banner">
+  <div class="text-container">
+    <h4 class="display-6">Welcome to</h4>
+    <h3 class="display-1 fw-bold">Bali Job Finder</h3>
+    <h5 class="display-6">Website Lowongan Yang Membantu <br>Pelamar Mencari Pekerjaan</h5>
+  </div>
+  <div class="image-container">
+    <img src="img/banner-img.png" alt="" class="img-fluid">
+  </div>
 </div>
 <!-- Tips Section -->
 <div class="container-fluid tips" id="tips">
   <div class="container-fluid">
    <div class="row align-items-center">
-     <div class="col-md-6">
-      <a href="#" class="logo">
-        <img src="../bootsraps/img/Logo-tips.png" alt="" height="500px">
+     <div class="col-md-6 mb-4">
+      <a href="#" class="tips_logo">
+        <img src="img/tips-img.png" alt="" height="400px">
       </a>
      </div>
      <div class="col-md-6">
        <h3 class="display-4 text-center">Tips Melamar</h3>
-       <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit est, esse facere provident aliquam numquam laboriosam fugiat totam, dolor, quia porro quos itaque alias distinctio perspiciatis deleniti voluptatem molestias magnam sed reiciendis rem eos quae. Error temporibus quaerat assumenda numquam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita repellendus rerum culpa facilis eum non? Molestiae asperiores minima, recusandae voluptatem dolores eveniet voluptatibus necessitatibus minus incidunt, id non error corporis.</p>
+       <p class="">Berikut adalah tips singkat untuk melamar pekerjaan dari kami. Riset dan persiapkan diri dengan baik, perbarui resume dan surat lamaran sesuai dengan pekerjaan yang dilamar, tampilkan keahlian dan portofolio yang relevan, persiapkan diri dengan baik untuk wawancara, dan tunjukkan sikap profesional sepanjang proses melamar. Dengan menerapkan tips-tips ini, Anda dapat meningkatkan peluang sukses dalam melamar pekerjaan.</p>
      </div>
     </div>
   </div>
@@ -158,7 +163,7 @@
       <img src="img/teknologi.jpg" alt="">
       <div class="overlay">
        <div class="overlay-content">
-        <h2>Teknologi</h2>
+        <h2>Teknologi Informasi</h2>
        </div>
       </div>
      </div>
@@ -195,14 +200,14 @@
   <div class="mx-2">
     <div class="card h-100">
       <div class="card-image">
-        <img src="img/keranjang.png" class="card-img-top" alt="...">
+        <img src="img/pln.png" class="card-img-top" alt="...">
       </div>
       <div class="card-body">
-        <h5 class="card-title font-weight-bold">Staf Administrasi</h5>
+        <h5 class="card-title font-weight-bold fw-bold">Staf Administrasi</h5>
         <h4 class="card-subtitle font-weight-light">PT PLN PERSERO</h4>
         <p class="card-text">Pendidikan minimal S1 S2&D3/D4 
           semua jurusan (1,4,5)</p>
-        <p><i class="fa-sharp fa-solid fa-location-dot" style="color: #2b1b56;"> Denpasar</i></p>
+        <p><i class="fa-sharp fa-solid fa-location-dot" style="color: #0D6EFD;"> Denpasar</i></p>
         <p>Rp.3.000.000,00</p>
         <div class="d-grid gap-2">
           <button class="btn btn-primary" type="button">Button</button>
@@ -211,7 +216,7 @@
     </div>
   </div>
 </div>
-<footer class="mt-3 text-white pt-5 pb-4" style="background-color : #2b1b56 ;">
+<footer class="mt-3 text-white pt-5 pb-4" style="background-color : #0D6EFD ;">
   <div class="container text-md-left">
     <div class="row text-md-left">
     <div class="col-5 me-5" >

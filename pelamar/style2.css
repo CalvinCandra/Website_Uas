@@ -10,16 +10,30 @@
     background-color: #fff !important;
 }
   
-.banner{
-    background: url("../bootsraps/img/pengusaha.jpg")no-repeat center center;
+.banner {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #fff, #d1d3ff);
     background-size: cover;
-    padding-top: 20%;
-    padding-bottom: 20%;
-    color: #fff;
+    padding: 20px;
+    color: #000;
 }
+
+.text-container {
+    flex: 1;
+}
+
+.image-container {
+    flex: 1;
+    text-align: right;
+}
+.image-container img{
+    max-width: 100%;
+}
+
+
 .tips{
     background-color: #fff;
-    /* background: url("../bootsraps/img/tips.png")no-repeat center center; */
     background-size: cover;
     padding-top: 5%;
     padding-bottom: 5%;
@@ -28,12 +42,24 @@
 
 /* AGUNG */
 .judul {
-    border-bottom: 10px solid #05B5FF;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px; /* Atur sesuai kebutuhan */
-    margin-bottom: 50px; /* Atur sesuai kebutuhan */
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+}
+.judul::after{
+    content: '';
+    background: #0D6EFD;
+    width: 300px;
+    height: 7px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom:-12px;
 }
 .square {
     box-shadow: 2px 2px 15px black;
@@ -84,16 +110,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to right,#05b4ff72,#052fff6e );
+    background: linear-gradient(to right,#0d6dfd86,#084fb981 );
 }
 .square-new .overlay-content {
     text-align: center;
     color: #fff;
 }
-.square-new .overlay-content h4 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
+.square-new .overlay-content h2 {
+    text-shadow: 0px 4px 4px 0px #000;
+    font-family: Muro;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+    font-size: 32px;
 }
 
 .card {
