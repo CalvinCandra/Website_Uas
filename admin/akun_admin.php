@@ -1,6 +1,5 @@
 <?php
     include('../koneksi/koneksi.php');
-    require ("../admin/sistem_admin.php");
 ?>
 
 <!DOCTYPE html>
@@ -149,9 +148,9 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                          <form method="post">
-                                            <input type="hidden" class="form-control" name="ids" value="<?php echo $data['id_users']?>">
-                                            <input type="hidden" class="form-control" name="ida" value="<?php echo $data['id_admin']?>">
+                                          <form action="../admin/sistem_admin.php" method="post">
+                                            <input type="hidden" class="form-control" name="id_users" value="<?php echo $data['id_users']?>">
+                                            <input type="hidden" class="form-control" name="id_admin" value="<?php echo $data['id_admin']?>">
                                             
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b> Email Admin</b></label>
@@ -183,12 +182,12 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                            <form method="post">
+                                            <form action="../admin/sistem_admin.php" method="post">
                                               <div class="form-group text-dark">
                                                 Apakah Anda Yakin Ingin Menghapus <b><?php echo $data['nama_lengkap']?></b>
                                                 <br><br>
-                                                <input type="hidden" name="ida" value=<?php echo $data['id_admin']?>>
-                                                <input type="hidden" name="ids" value=<?php echo $data['id_users']?>>
+                                                <input type="hidden" name="id_admin" value=<?php echo $data['id_admin']?>>
+                                                <input type="hidden" name="id_users" value=<?php echo $data['id_users']?>>
                                                 <button type="submit" class="btn btn-danger" name="deleteadmin">Hapus</button>
                                               </div>
                                             </form>
@@ -236,7 +235,7 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            <form method="post">
+                            <form action="../admin/sistem_admin.php" method="post">
                               <input type="hidden" class="form-control" name="role" value="admin">
 
                               <div class="form-group">
@@ -249,7 +248,7 @@
                               </div>
                               <div class="form-group">
                                 <label for="" class="text-dark"><b> Passwrod Admin</b></label>
-                                <input type="text" class="form-control" name="pass" placeholder="Password Admin" required>
+                                <input type="text" class="form-control" name="password" placeholder="Password Admin" required>
                               </div>
                               <div class="form-group">
                                 <button type="submit" class="btn btn-primary" name="addadmin">Submit</button>

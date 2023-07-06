@@ -68,7 +68,8 @@ if(isset($_POST['login'])){
                 echo "<script>document.location='../penyedia/dashboard.php?success=Berhasil Login'</script>";
             }else{
                 $_SESSION['pelamar'] = $datapelamar['nama_lengkap'];
-                echo "<script>document.location='../pelamar/dashboard.php";
+                $_SESSION['id_pelamar'] = $datapelamar['id_pelamar'];
+                echo "<script>document.location='../pelamar/dashboard.php'</script>";
             }
         }else{
             echo"<script>document.location='../login/login.php?error=Email dan Password Tidak Cocok'</script>";

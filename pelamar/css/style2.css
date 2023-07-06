@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,700&display=swap');
+
+*{
+    font-family: "Poopin", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
 .navbar-nav .fa-user-tie {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-top: 0px;
-    margin-left: 5px;
 }
 .navbar {
     transition: background-color 0.3s;
@@ -9,6 +16,7 @@
 .navbar-scrolled {
     background-color: #fff !important;
 }
+
   
 .banner {
     display: flex;
@@ -62,7 +70,7 @@
     margin-bottom:-12px;
 }
 .square {
-    box-shadow: 2px 2px 15px black;
+    box-shadow: 2px 2px 8px black;
     position: relative;
     width: 100%;
     padding-bottom: 100%;
@@ -129,23 +137,18 @@
     position: relative;
     height: 100%;
     border-radius: 0;
-    background-color: #f1f1f1;
     margin-top: 10px;
 }
 .card-image {
     height: 60%; /* Mengatur tinggi gambar menjadi 60% dari tinggi kartu */
     display: flex;
-    align-items: center;
     justify-content: left;
 }
   
 .card-image img {
-    max-width: 40%; /* Mengatur lebar gambar menjadi 80% dari lebar kartu */
-    max-height: 40%; /* Mengatur tinggi gambar menjadi 80% dari tinggi kartu */
-    object-fit: contain; /* Mengatur gambar agar sesuai dengan ukuran yang ditetapkan */
     padding-top: 15px;
     padding-left: 20px;
-}
+} 
 
 /* hen */
 /* Contact */
@@ -209,4 +212,25 @@
     padding: 20px;
 }
 /* hen */
+
+/* detail */
+.set{
+    margin-top: 3rem;
+}
  
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+   html{
+    font-size: 75%;
+   }
+
+   .navbar-cus{
+    transition: none;
+    margin-bottom: 50rem;
+   }
+
+   .tips_logo img{
+     display: none;
+   }
+    
+}

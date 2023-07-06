@@ -1,6 +1,5 @@
 <?php
     include('../koneksi/koneksi.php');
-    require ("../admin/sistem_admin.php");
 ?>
 
 <!DOCTYPE html>
@@ -91,7 +90,7 @@
                                             <th>Email</th>
                                             <th>Nama Perusahaan</th>
                                             <th>Logo Perusahaan</th>
-                                            <th>Kota Perusahaan</th>
+                                            <th class="col-4">Alamat Perusahaan</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -129,15 +128,15 @@
                                             <td><?php echo $i++?></td>
                                             <td><?php echo $data['email']?></td>
                                             <td><?php echo $data['nama_perusahaan']?></td>
-                                            <td><img src="<?php echo "../logo/" . $data['logo']?>" alt="" width="120px" height="120px"></td>
+                                            <td><img src="<?php echo "../storage/logo/" . $data['logo']?>" alt="" width="120px" height="120px"></td>
                                             <td><?php echo $data['alamat']?></td>
                                             <td>
-                                              <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?=$data['id_penyedia']?>">
+                                              <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#edit<?=$data['id_penyedia']?>">
                                                 Edit
-                                              </button>
-                                              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?=$data['id_penyedia']?>">
+                                              </a>
+                                              <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete<?=$data['id_penyedia']?>">
                                                 Delete
-                                              </button>
+                                              </a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -153,9 +152,9 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                          <form method="post" enctype="multipart/form-data">
-                                            <input type="hidden" class="form-control" name="ids" value="<?php echo $data['id_users']?>">
-                                            <input type="hidden" class="form-control" name="idp" value="<?php echo $data['id_penyedia']?>">
+                                          <form action="../admin/sistem_admin.php" method="post" enctype="multipart/form-data">
+                                            <input type="hidden" class="form-control" name="id_users" value="<?php echo $data['id_users']?>">
+                                            <input type="hidden" class="form-control" name="id_penyedia" value="<?php echo $data['id_penyedia']?>">
                                             
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b> Email Perusahaan</b></label>
@@ -163,17 +162,22 @@
                                             </div>
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b> Nama Perusahaan</b></label>
-                                              <input type="text" class="form-control" name="nama" value="<?php echo $data['nama_perusahaan']?>" required>
+                                              <input type="text" class="form-control" name="nama_perusahaan" value="<?php echo $data['nama_perusahaan']?>" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="" class="text-dark"><b> Logo Perusahaan</b></label> <br>
-                                                <img src="../logo/<?php echo $data['logo']?>" alt="" width="120px" height="120px">
+                                                <img src="../storage/logo/<?php echo $data['logo']?>" alt="" width="120px" height="120px">
                                                 <input type="file" name="logo">
                                             </div>
                                             <div class="form-group">
-                                              <label for="" class="text-dark"><b> Kota Perusahaan</b></label>
-                                              <input type="text" class="form-control" name="kota" value="<?php echo $data['alamat']?>" required>
+                                              <label for="" class="text-dark"><b> Alamat Perusahaan</b></label>
+                                              <textarea class="form-control" rows="3" name="alamat"><?php echo $data['alamat']?></textarea>
                                             </div>
+                                            <div class="form-group">
+                                              <label for="" class="text-dark"><b> Kota Perusahaan</b></label>
+                                              <input type="text" class="form-control" name="kota" value="<?php echo $data['kota']?>" required>
+                                            </div>
+                                           
                                             <div class="form-group">
                                               <button type="submit" class="btn btn-warning" name="updatepenyedia">Submit</button>
                                             </div>
@@ -196,12 +200,12 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                            <form method="post">
+                                            <form action="../admin/sistem_admin.php" method="post">
                                               <div class="form-group text-dark">
                                                 Apakah Anda Yakin Ingin Menghapus <b><?php echo $data['nama_perusahaan']?></b>
                                                 <br><br>
-                                                <input type="hidden" name="idp" value=<?php echo $data['id_penyedia']?>>
-                                                <input type="hidden" name="ids" value=<?php echo $data['id_users']?>>
+                                                <input type="hidden" name="id_penyedia" value=<?php echo $data['id_penyedia']?>>
+                                                <input type="hidden" name="id_users" value=<?php echo $data['id_users']?>>
                                                 <button type="submit" class="btn btn-danger" name="deletepenyedia">Hapus</button>
                                               </div>
                                             </form>
@@ -243,13 +247,13 @@
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Tambah Akun Admin</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Tambah Akun Perusahaan</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
                           <div class="modal-body">
-                            <form method="post" enctype="multipart/form-data">
+                            <form action="../admin/sistem_admin.php" method="post" enctype="multipart/form-data">
                               <input type="hidden" class="form-control" name="role" value="penyedia">
 
                               <div class="form-group">
@@ -258,7 +262,7 @@
                               </div>
                               <div class="form-group">
                                 <label for="" class="text-dark"><b> Nama Perusahaan</b></label>
-                                <input type="text" class="form-control" name="nama" placeholder="Nama Perusahaan" required>
+                                <input type="text" class="form-control" name="nama_perusahaan" placeholder="Nama Perusahaan" required>
                               </div>
                               <div class="form-group">
                                   <label for="" class="text-dark"><b> Logo Perusahaan</b></label> <br>
@@ -266,11 +270,15 @@
                               </div>
                               <div class="form-group">
                                 <label for="" class="text-dark"><b> Passwrod Perusahaan</b></label>
-                                <input type="text" class="form-control" name="pass" placeholder="Password Perusahaan" required>
+                                <input type="text" class="form-control" name="password" placeholder="Password Perusahaan" required>
+                              </div>
+                              <div class="form-group">
+                                <label for="" class="text-dark"><b> Alamat Perusahaan</b></label>
+                                <textarea class="form-control" rows="3" name="alamat"></textarea>
                               </div>
                               <div class="form-group">
                                 <label for="" class="text-dark"><b> Kota Perusahaan</b></label>
-                                <input name="alamat" class="form-control" placeholder="Kota Perusahaan" required>
+                                <input name="kota" class="form-control" placeholder="Kota Perusahaan" required>
                               </div>
                               <div class="form-group">
                                 <button type="submit" class="btn btn-primary" name="addpenyedia">Submit</button>
