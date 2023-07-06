@@ -1,6 +1,5 @@
 <?php
     include('../koneksi/koneksi.php');
-    require ("../admin/sistem_admin.php");
 ?>
 
 <!DOCTYPE html>
@@ -123,7 +122,7 @@
                                         <tr>
                                             <td><?php echo $i++?></td>
                                             <td><?php echo $data['nama_perusahaan']?></td>
-                                            <td><img src="../logo/<?php echo $data['logo']?>" alt="" width="110px" height="110px"></td>
+                                            <td><img src="../storage/logo/<?php echo $data['logo']?>" alt="" width="110px" height="110px"></td>
                                             <td><?php echo $data['jabatan']?></td>
                                             <td>
                                               <button type="button" class="btn btn-info" data-toggle="modal" data-target="#detail<?=$data['id_iklan']?>">
@@ -138,7 +137,7 @@
                                      <!-- DETAIL Modal -->
                                      <div class="modal fade" id="detail<?=$data['id_iklan']?>" tabindex="-1" aria-labelledby="exampleModalLabel"
                                       aria-hidden="true">
-                                      <div class="modal-dialog modal-dialog-centered">
+                                      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Detail Lowongan</h5>
@@ -154,7 +153,7 @@
                                             </div>
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b>Logo Perusahaan</b></label>
-                                              <img src="../logo/<?php echo $data['logo']?>" alt="" width ="110px" heigth="110px">
+                                              <img src="../storage/logo/<?php echo $data['logo']?>" alt="" width ="110px" heigth="110px">
                                             </div>
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b> Jabatan</b></label>
@@ -162,7 +161,7 @@
                                             </div>
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b> Syarat</b></label>
-                                              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled><?php echo $data['syarat']?></textarea>
+                                              <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" disabled><?php echo $data['syarat']?></textarea>
                                             </div>
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b> Alamat</b></label>
@@ -170,7 +169,7 @@
                                             </div>
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b>Gaji</b></label>
-                                              <input type="text" class="form-control" value="<?php echo $data['salary']?>" disabled>
+                                              <input type="text" class="form-control" value="<?php echo tambahrp($data['salary'])?>" disabled>
                                             </div>
 
                                           </div>
@@ -190,11 +189,11 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                            <form method="post">
+                                            <form action="../admin/sistem_admin.php" method="post">
                                               <div class="form-group text-dark">
                                                 Apakah Anda Yakin Ingin Menghapus Lowongan <b><?php echo $data['jabatan']?></b> dari Perusahaan <b><?php echo $data['nama_perusahaan']?></b>
                                                 <br><br>
-                                                <input type="hidden" name="ida" value=<?php echo $data['id_iklan']?>>
+                                                <input type="hidden" name="id_iklan" value=<?php echo $data['id_iklan']?>>
                                                 <button type="submit" class="btn btn-danger" name="deletelowongan">Hapus</button>
                                               </div>
                                             </form>
@@ -255,5 +254,9 @@
 
 
 <?php
-
+  // ======================================================== FUNCTION UNTUK RUPIAH =======================================================
+function tambahrp($angka){
+  $rupiah ='Rp. '.number_format($angka,0,',','.');
+  return $rupiah;
+}
 ?>

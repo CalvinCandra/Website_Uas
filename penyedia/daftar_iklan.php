@@ -1,6 +1,5 @@
 <?php
     include('../koneksi/koneksi.php');
-    require ("../penyedia/sistem_penyedia.php");
 ?>
 
 <!DOCTYPE html>
@@ -110,7 +109,7 @@
                                        }
                                        
                                        // query tb admin untuk mengecek data
-                                       $query = mysqli_query($conn, "SELECT * FROM iklan");
+                                       $query = mysqli_query($conn, "SELECT * FROM iklan WHERE iklan.id_penyedia = ".$_SESSION['id']);
                                        $jmldata = mysqli_num_rows($query);
  
                                        //melakukan pembagian antara $jmldata dengan $batas, dan nanti akan dibulatkan menggunakan fungsi ceil() 
@@ -126,7 +125,7 @@
                                         <tr>
                                             <td><?php echo $i++?></td>
                                             <td><?php echo $data['jabatan']?></td>
-                                            <td><?php echo $data['salary']?></td>
+                                            <td><?php echo tambahrp($data['salary'])?></td>
                                             <td>
                                               <button type="button" class="btn btn-info" data-toggle="modal" data-target="#detail<?=$data['id_iklan']?>">
                                                 Detail
@@ -142,7 +141,7 @@
                                     </tbody>
                                     <!-- DETAIL Modal -->
                                     <div class="modal fade" id="detail<?=$data['id_iklan']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                      <div class="modal-dialog modal-dialog-centered">
+                                      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Detail Lowongan</h5>
@@ -158,7 +157,7 @@
                                             </div>
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b> Logo Perusahaan </b></label>
-                                              <img src="../logo/<?php echo $data['logo']?>" alt="" width="100px" height="100px">
+                                              <img src="../storage/logo/<?php echo $data['logo']?>" alt="" width="100px" height="100px">
                                             </div>
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b> jabatan </b></label>
@@ -174,7 +173,7 @@
                                             </div>
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b>Salary</b></label>
-                                              <input class="form-control" rows="3" value="<?php echo $data['salary']?>" disabled>
+                                              <input class="form-control" rows="3" value="<?php echo tambahrp($data['salary'])?>" disabled>
                                             </div>
 
                                           </div>
@@ -194,26 +193,26 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                          <form method="post" enctype="multipart/form-data">
+                                          <form action="../penyedia/sistem_penyedia.php" method="post" enctype="multipart/form-data">
                                     
-                                            <input type="hidden" class="form-control" name="idi" value="<?php echo $data['id_iklan']?>">
-                                            <input type="hidden" class="form-control" name="idp" value="<?php echo $_SESSION['id']?>">
+                                            <input type="hidden" class="form-control" name="id_iklan" value="<?php echo $data['id_iklan']?>">
+                                            <input type="hidden" class="form-control" name="id_penyedia" value="<?php echo $_SESSION['id']?>">
                                             
                                             <div class="form-group">
-                                              <label for="" class="text-dark"><b> jabatan </b></label>
+                                              <label for="" class="text-dark"><b> Jabatan </b></label>
                                               <input type="text" class="form-control"name="jabatan" value="<?php echo $data['jabatan']?>">
                                             </div>
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b> Syarat</b></label>
-                                              <textarea class="form-control" name="syarat" id="exampleFormControlTextarea1" rows="3"><?php echo $data['syarat']?></textarea>
+                                              <textarea class="form-control" name="syarat" id="exampleFormControlTextarea1" rows="10"><?php echo $data['syarat']?></textarea>
                                             </div>
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b>Alamat Perusahaan</b></label>
-                                              <input type="text" class="form-control" value="<?php echo $data['alamat']?>" name="alamat">
+                                              <textarea class="form-control" name="alamat" id="exampleFormControlTextarea1" rows="3"><?php echo $data['alamat']?></textarea>
                                             </div>
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b>Salary</b></label>
-                                              <input class="form-control" rows="3" value="<?php echo $data['salary']?>" name="salary">
+                                              <input class="form-control" rows="3" value="<?php echo tambahrp($data['salary'])?>" name="salary">
                                             </div>
 
                                             <div class="form-group">
@@ -238,11 +237,11 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                            <form method="post">
+                                            <form action="../penyedia/sistem_penyedia.php" method="post">
                                               <div class="form-group text-dark">
                                                 Apakah Anda Yakin Ingin Menghapus <b><?php echo $data['jabatan']?></b>
                                                 <br><br>
-                                                <input type="hidden" name="ida" value=<?php echo $data['id_iklan']?>>
+                                                <input type="hidden" name="id_iklan" value=<?php echo $data['id_iklan']?>>
                                                 <button type="submit" class="btn btn-danger" name="deletelowowngan">Hapus</button>
                                               </div>
                                             </form>
@@ -290,9 +289,9 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            <form method="post" enctype="multipart/form-data">
+                            <form action="../penyedia/sistem_penyedia.php" method="post" enctype="multipart/form-data">
                               <!-- mengambil id penyedia yang sedang login -->
-                              <input type="hidden" name="idp" value="<?php echo $_SESSION['id']?>">
+                              <input type="hidden" name="id_penyedia" value="<?php echo $_SESSION['id']?>">
 
                               <div class="form-group">
                                 <label for="" class="text-dark"><b>Jabatan</b></label>
@@ -305,11 +304,11 @@
 
                               <div class="form-group">
                                 <label for="" class="text-dark"><b> Salary </b></label>
-                                <input type="number" class="form-control" name="salary" placeholder="Masukan Gaji" required>
+                                <input type="number" class="form-control" name="salary" placeholder="Masukan Salary" required>
                               </div>
 
                               <div class="form-group">
-                                <button type="submit" class="btn tambah" name="addiklan">Submit</button>
+                                <button type="submit" class="btn btn-primary" name="addiklan">Submit</button>
                               </div>
                             </form>
                           </div>
@@ -342,5 +341,9 @@
 
 
 <?php
-
+  // ======================================================== FUNCTION UNTUK RUPIAH =======================================================
+function tambahrp($angka){
+  $rupiah ='Rp. '.number_format($angka,0,',','.');
+  return $rupiah;
+}
 ?>

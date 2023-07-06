@@ -1,6 +1,5 @@
 <?php
     include('../koneksi/koneksi.php');
-    require ("../penyedia/sistem_penyedia.php");
 ?>
 
 <!DOCTYPE html>
@@ -85,6 +84,8 @@
                                             <th>No</th>
                                             <th>Email</th>
                                             <th>Nama Pelamar</th>
+                                            <th>Posisi Yang Dilamar</th>
+                                            <th>Cv</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -106,7 +107,7 @@
                                        }
                                        
                                        // query tb admin untuk mengecek data
-                                       $query = mysqli_query($conn, "SELECT * FROM pengajuan");
+                                       $query = mysqli_query($conn, "SELECT * FROM pengajuan WHERE pengajuan.id_penyedia = ".$_SESSION['id']);
                                        $jmldata = mysqli_num_rows($query);
  
                                        //melakukan pembagian antara $jmldata dengan $batas, dan nanti akan dibulatkan menggunakan fungsi ceil() 
@@ -116,7 +117,9 @@
                                       $perusahaan = $_SESSION['id'];
                                       $ambildata=mysqli_query($conn, "SELECT * FROM pengajuan 
                                                                     INNER JOIN pelamar ON pengajuan.id_pelamar = pelamar.id_pelamar
+                                                                    INNER JOIN users On pelamar.id_users = users.id_users
                                                                     INNER JOIN penyedia ON pengajuan.id_penyedia = penyedia.id_penyedia
+                                                                    INNER JOIN iklan ON pengajuan.id_iklan = iklan.id_iklan
                                                                     WHERE pengajuan.id_penyedia = $perusahaan LIMIT $posisi, $batas");
                                       $i=$halaman_awal+1;
                                       while($data=mysqli_fetch_array($ambildata)){
@@ -127,9 +130,14 @@
                                             <td><?php echo $i++?></td>
                                             <td><?php echo $data['email']?></td>
                                             <td><?php echo $data['nama_lengkap']?></td>
-                                            <td><?php echo $data['cv']?></td>
+                                            <td><?php echo $data['jabatan']?></td>
                                             <td>
-                                              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?=$data['id_iklan']?>">
+                                              <a href="../storage/cv/<?php echo $data['cv']?>" target="__blank">
+                                                <?php echo $data['cv']?>
+                                              </a>
+                                            </td>
+                                            <td>
+                                              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?=$data['id_pengajuan']?>">
                                                 Hilangkan
                                               </button>
                                             </td>
@@ -148,12 +156,12 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                            <form method="post">
+                                            <form action="../penyedia/sistem_penyedia.php" method="post">
                                               <div class="form-group text-dark">
                                                   Semoga Keputusan Anda adalah Keputusan Yang Membawa Keberuntungan
                                                 <br><br>
-                                                <input type="hidden" name="idj" value=<?php echo $data['id_pengajuan']?>>
-                                                <button type="submit" class="btn btn-danger" name="submit">Submit</button>
+                                                <input type="hidden" name="id_pengajuan" value=<?php echo $data['id_pengajuan']?>>
+                                                <button type="submit" class="btn btn-danger" name="hilang">Submit</button>
                                               </div>
                                             </form>
                                           </div>

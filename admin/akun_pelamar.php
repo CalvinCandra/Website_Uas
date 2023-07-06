@@ -1,6 +1,5 @@
 <?php
     include('../koneksi/koneksi.php');
-    require ("../admin/sistem_admin.php");
 ?>
 
 <!DOCTYPE html>
@@ -108,7 +107,7 @@
                                       }
                                       
                                       // query tb admin untuk mengecek data
-                                      $query = mysqli_query($conn, "SELECT * FROM penyedia");
+                                      $query = mysqli_query($conn, "SELECT * FROM pelamar");
                                       $jmldata = mysqli_num_rows($query);
 
                                       //melakukan pembagian antara $jmldata dengan $batas, dan nanti akan dibulatkan menggunakan fungsi ceil() 
@@ -140,7 +139,7 @@
                                     <!-- DETAIL Modal -->
                                     <div class="modal fade" id="detail<?=$data['id_pelamar']?>" tabindex="-1" aria-labelledby="exampleModalLabel"
                                       aria-hidden="true">
-                                      <div class="modal-dialog modal-dialog-centered">
+                                      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Detail Akun Pelamar</h5>
@@ -159,12 +158,8 @@
                                               <input type="text" class="form-control" value="<?php echo $data['nama_lengkap']?>" disabled>
                                             </div>
                                             <div class="form-group">
-                                              <label for="" class="text-dark"><b> Pendidikan Terakhir</b></label>
-                                              <input type="text" class="form-control" value="<?php echo $data['riwayat_pendidik']?>" disabled>
-                                            </div>
-                                            <div class="form-group">
-                                              <label for="" class="text-dark"><b> Asal Jurusan</b></label>
-                                              <input type="text" class="form-control" value="<?php echo $data['asal_jurusan']?>" disabled>
+                                              <label for="" class="text-dark"><b> Lulusan Pelamar</b></label>
+                                              <input type="text" class="form-control" value="<?php echo $data['lulusan']?>" disabled>
                                             </div>
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b> Nomer WhatsApp</b></label>
@@ -187,7 +182,7 @@
                                     <!-- EDIT Modal -->
                                     <div class="modal fade" id="edit<?=$data['id_pelamar']?>" tabindex="-1" aria-labelledby="exampleModalLabel"
                                       aria-hidden="true">
-                                      <div class="modal-dialog modal-dialog-centered">
+                                      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Edit Akun Pelamar</h5>
@@ -196,9 +191,9 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                          <form method="post">
-                                            <input type="hidden" class="form-control" name="ids" value="<?php echo $data['id_users']?>">
-                                            <input type="hidden" class="form-control" name="idl" value="<?php echo $data['id_pelamar']?>">
+                                          <form action="../admin/sistem_admin.php" method="post">
+                                            <input type="hidden" class="form-control" name="id_users" value="<?php echo $data['id_users']?>">
+                                            <input type="hidden" class="form-control" name="id_pelamar" value="<?php echo $data['id_pelamar']?>">
                                             
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b> Email Pelamar</b></label>
@@ -209,12 +204,8 @@
                                               <input type="text" class="form-control" name="nama" value="<?php echo $data['nama_lengkap']?>" required>
                                             </div>
                                             <div class="form-group">
-                                              <label for="" class="text-dark"><b> Pendidikan Terakhir</b></label>
-                                              <input type="text" class="form-control" name="pendidikan" value="<?php echo $data['riwayat_pendidik']?>" required>
-                                            </div>
-                                            <div class="form-group">
-                                              <label for="" class="text-dark"><b> Asal Jurusan</b></label>
-                                              <input type="text" class="form-control" name="jurusan" value="<?php echo $data['asal_jurusan']?>" required>
+                                              <label for="" class="text-dark"><b>Lulusan Pelamar</b></label>
+                                              <input type="text" class="form-control" name="lulusan" value="<?php echo $data['lulusan']?>" required>
                                             </div>
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b> Nomer WhatsApp</b></label>
@@ -222,11 +213,11 @@
                                             </div>
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b> Tempat Tinggal</b></label>
-                                              <textarea class="form-control" rows="3" name="tinggal"><?php echo $data['tempat_tinggal']?></textarea>
+                                              <textarea class="form-control" rows="3" name="tempat_tinggal" required><?php echo $data['tempat_tinggal']?></textarea>
                                             </div>
                                             <div class="form-group">
                                               <label for="" class="text-dark"><b> Pengalaman</b></label>
-                                              <textarea class="form-control" rows="3" name="pengalaman"><?php echo $data['pengalaman']?></textarea>
+                                              <textarea class="form-control" rows="3" name="pengalaman" require><?php echo $data['pengalaman']?></textarea>
                                             </div>
                                             <div class="form-group">
                                               <button type="submit" class="btn btn-warning" name="updatepelamar">Submit</button>
@@ -250,12 +241,12 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                            <form method="post">
+                                            <form action="../admin/sistem_admin.php" method="post">
                                               <div class="form-group text-dark">
                                                 Apakah Anda Yakin Ingin Menghapus <b><?php echo $data['nama_lengkap']?></b>
                                                 <br><br>
-                                                <input type="hidden" name="idl" value=<?php echo $data['id_pelamar']?>>
-                                                <input type="hidden" name="ids" value=<?php echo $data['id_users']?>>
+                                                <input type="hidden" name="id_pelamar" value=<?php echo $data['id_pelamar']?>>
+                                                <input type="hidden" name="id_users" value=<?php echo $data['id_users']?>>
                                                 <button type="submit" class="btn btn-danger" name="deletepelamar">Hapus</button>
                                               </div>
                                             </form>
