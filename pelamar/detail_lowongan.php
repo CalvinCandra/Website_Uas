@@ -19,7 +19,7 @@
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm" >
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="../bootsraps/img/blue_logo.png" alt="Bali Job Finder" height="40px">
+      <img src="../pelamar/img/blue_logo.png" alt="Bali Job Finder" height="40px">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -53,12 +53,19 @@
 
 <!-- lowongan -->
 <section class="mt-5">
+  <div class="container">
     <div class="judul">
         <h3 class="section-title text-center">Lowongan Pekerjaan</h3>
-    </div>
-
-    <div class="container">
-        <div class="row justify-content-center">
+      </div>
+      
+      
+      <div class="row justify-content-center">
+          <!-- form search -->
+          <!-- mengirim yang diinput user pada url dengan method get dan action pada file yang ingin data di search -->
+            <form class="d-flex mb-4" role="search" method="get" action="../pelamar/detail_lowongan.php">
+                <input class="form-control me-2" type="search" name="cari" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
             <?php
                 // menentukan batasan
                 $batas = 16;
@@ -81,7 +88,16 @@
                 //melakukan pembagian antara $jmldata dengan $batas, dan nanti akan dibulatkan menggunakan fungsi ceil() 
                 $jmlhalaman = ceil($jmldata/$batas);
 
-                $ambildata = mysqli_query($conn, "SELECT * FROM iklan INNER JOIN penyedia ON iklan.id_penyedia = penyedia.id_penyedia ORDER BY id_iklan DESC LIMIT $batas");
+                // mengambil data cari dari url yang dikirim sebelumnya
+                // jika ada yang dicari ada, maka akan menampilkan data sesuai inputan user, jika inputan == NULL maka akan menampilkan hal yang sama seperti sebelumnya
+                if(isset($_GET['cari'])){
+                  $cari=$_GET['cari'];
+                  $ambildata=mysqli_query($conn, "SELECT * FROM iklan INNER JOIN penyedia ON iklan.id_penyedia = penyedia.id_penyedia WHERE nama_perusahaan OR jabatan LIKE '%".$cari."%' ORDER BY id_iklan DESC LIMIT $batas");
+                }else{
+                  // jika inputan tidak dikirim, akan menampilkan berikut
+                  $ambildata = mysqli_query($conn, "SELECT * FROM iklan INNER JOIN penyedia ON iklan.id_penyedia = penyedia.id_penyedia ORDER BY id_iklan DESC LIMIT $batas");
+                }
+
                 while($data=mysqli_fetch_array($ambildata)){
             ?>
             <div class="col-md-3">
@@ -203,10 +219,11 @@
   <a href="../pelamar/dashboard.php" class="btn btn-primary w-50">Kembali</a>
 </div>
 
+<!-- footer -->
 <footer class="mt-3 text-white pt-5 pb-4" style="background-color : #0D6EFD ;">
   <div class="container text-md-left">
     <div class="row text-md-left">
-    <div class="col-5 me-5" >
+      <div class="col-5 me-5" >
         <h3>BALI JOB FINDER</h3>
         <p>Sebuah website yang menyediakan informasi lowongan pekerjaan dan sekaligus berfungsi sebagai perantara antara pelamar kerja dengan perusahan, sehingga akan memudahan pelamar untuk mencari pekerjaan dan memudahkan perusahaan dalam mencari tenaga kerja yang tepat</p>
       </div>
@@ -215,37 +232,38 @@
           <p> <i class="fa-brands fa-whatsapp pe-2"></i>081353847864 </p>
           <p><i class="fa-solid fa-phone pe-2"></i>(0361) 23123</p>
           <p><i class="fa-solid fa-envelope pe-2"></i>balijobfinder@gmail.com</p>
-          <p><i class="fa-solid fa-location-dot pe-3"></i>Kampus Bukit Jimbaran, South Kuta, Badung Regenecy, Bali 80364 </p>
-           
-          
+          <p><i class="fa-solid fa-location-dot pe-3"></i>Kampus Bukit Jimbaran, South Kuta, Badung Regenecy, Bali 80364 </p>          
       </div>
+
       <hr class="mb-4">
       <div class="row align-items-center">
+
         <div class="col-md-7 col lg-8">
         <p>Copyright @2023 All rights reserved by:
           <a href="#" style="text-decoration: none">
             <strong class=" text-warning">Bali Job Finder</strong>
           </a></p>
         </div>
-    <div class="col-md-5 col-lg-4">
-      <div class="text-center text-md-right">
+        <div class="col-md-5 col-lg-4">
+          <div class="text-center text-md-right">
 
-        <ul class="list-unstyled list-inline">
-          <li class="list-inline-item">
-            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-instagram"></i></a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
-          </li>
-        </ul>
+             <ul class="list-unstyled list-inline">
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-instagram"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
+                </li>
+              </ul>
+
+          </div>
+
+        </div>
 
       </div>
-
-    </div>
-
   </div>
 </footer>
 

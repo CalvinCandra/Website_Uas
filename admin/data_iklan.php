@@ -76,6 +76,12 @@
                     <!-- table -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
+                          <!-- form search -->
+                            <!-- mengirim yang diinput user pada url dengan method get dan action pada file yang ingin data di search -->
+                            <form class="d-flex float-right" role="search" method="get" action="../admin/data_iklan.php">
+                              <input class="form-control mx-2" type="search" name="cari" placeholder="Search" aria-label="Search">
+                              <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -113,7 +119,17 @@
                                       //melakukan pembagian antara $jmldata dengan $batas, dan nanti akan dibulatkan menggunakan fungsi ceil() 
                                       $jmlhalaman = ceil($jmldata/$batas);
 
-                                      $ambildata=mysqli_query($conn, "SELECT * FROM iklan INNER JOIN penyedia ON iklan.id_penyedia = penyedia.id_penyedia ORDER by id_iklan DESC LIMIT $posisi, $batas");
+                                      // mengambil data cari dari url yang dikirim sebelumnya
+                                      // jika ada yang dicari ada, maka akan menampilkan data sesuai inputan user, jika inputan == NULL maka akan menampilkan hal yang sama seperti sebelumnya
+                                      if(isset($_GET['cari'])){
+                                        $cari=$_GET['cari'];
+                                        $ambildata=mysqli_query($conn, "SELECT * FROM iklan INNER JOIN penyedia ON iklan.id_penyedia = penyedia.id_penyedia WHERE nama_perusahaan OR jabatan LIKE '%".$cari."%' ORDER by id_iklan DESC LIMIT $posisi, $batas");
+                                      }else{
+                                        // jika inputan tidak dikirim, akan menampilkan berikut
+                                        $ambildata=mysqli_query($conn, "SELECT * FROM iklan INNER JOIN penyedia ON iklan.id_penyedia = penyedia.id_penyedia ORDER by id_iklan DESC LIMIT $posisi, $batas");
+                                      }
+
+
                                       $i=1;
                                       while($data=mysqli_fetch_array($ambildata)){
                                 

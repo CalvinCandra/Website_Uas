@@ -75,6 +75,12 @@
                     <!-- table -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
+                          <!-- form search -->
+                            <!-- mengirim yang diinput user pada url dengan method get dan action pada file yang ingin data di search -->
+                            <form class="d-flex float-right" role="search" method="get" action="../penyedia/daftar_pelamar.php">
+                              <input class="form-control mx-2" type="search" name="cari" placeholder="Search" aria-label="Search">
+                              <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -115,12 +121,27 @@
 
                                       //  menyimpan session id_penyedia ke dalam variable
                                       $perusahaan = $_SESSION['id'];
-                                      $ambildata=mysqli_query($conn, "SELECT * FROM pengajuan 
+                                      // mengambil data cari dari url yang dikirim sebelumnya
+                                      // jika ada yang dicari ada, maka akan menampilkan data sesuai inputan user, jika inputan == NULL maka akan menampilkan hal yang sama seperti sebelumnya
+                                      if(isset($_GET['cari'])){
+                                        $cari=$_GET['cari'];
+                                        $ambildata=mysqli_query($conn,"SELECT * FROM pengajuan 
+                                                                    INNER JOIN pelamar ON pengajuan.id_pelamar = pelamar.id_pelamar
+                                                                    INNER JOIN users On pelamar.id_users = users.id_users
+                                                                    INNER JOIN penyedia ON pengajuan.id_penyedia = penyedia.id_penyedia
+                                                                    INNER JOIN iklan ON pengajuan.id_iklan = iklan.id_iklan
+                                                                    WHERE email OR nama_lengkap LIKE '%".$cari."%' AND pengajuan.id_penyedia = $perusahaan LIMIT $posisi, $batas");
+                                      }else{
+                                        // jika inputan tidak dikirim, akan menampilkan berikut
+                                        $ambildata=mysqli_query($conn,"SELECT * FROM pengajuan 
                                                                     INNER JOIN pelamar ON pengajuan.id_pelamar = pelamar.id_pelamar
                                                                     INNER JOIN users On pelamar.id_users = users.id_users
                                                                     INNER JOIN penyedia ON pengajuan.id_penyedia = penyedia.id_penyedia
                                                                     INNER JOIN iklan ON pengajuan.id_iklan = iklan.id_iklan
                                                                     WHERE pengajuan.id_penyedia = $perusahaan LIMIT $posisi, $batas");
+                                      }
+
+                                      
                                       $i=$halaman_awal+1;
                                       while($data=mysqli_fetch_array($ambildata)){
                                 
