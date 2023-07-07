@@ -92,7 +92,7 @@
                 // jika ada yang dicari ada, maka akan menampilkan data sesuai inputan user, jika inputan == NULL maka akan menampilkan hal yang sama seperti sebelumnya
                 if(isset($_GET['cari'])){
                   $cari=$_GET['cari'];
-                  $ambildata=mysqli_query($conn, "SELECT * FROM iklan INNER JOIN penyedia ON iklan.id_penyedia = penyedia.id_penyedia WHERE nama_perusahaan OR jabatan LIKE '%".$cari."%' ORDER BY id_iklan DESC LIMIT $batas");
+                  $ambildata=mysqli_query($conn, "SELECT * FROM iklan INNER JOIN penyedia ON iklan.id_penyedia = penyedia.id_penyedia WHERE jabatan LIKE '%".$cari."%' OR nama_perusahaan LIKE '%".$cari."%' ORDER BY id_iklan DESC LIMIT $batas");
                 }else{
                   // jika inputan tidak dikirim, akan menampilkan berikut
                   $ambildata = mysqli_query($conn, "SELECT * FROM iklan INNER JOIN penyedia ON iklan.id_penyedia = penyedia.id_penyedia ORDER BY id_iklan DESC LIMIT $batas");
