@@ -67,7 +67,6 @@ if(isset($_POST['login'])){
                 $_SESSION['id'] = $datapenyedia['id_penyedia'];
                 echo "<script>document.location='../penyedia/dashboard.php?success=Berhasil Login'</script>";
             }else{
-                $_SESSION['pelamar'] = $datapelamar['nama_lengkap'];
                 $_SESSION['id_pelamar'] = $datapelamar['id_pelamar'];
                 echo "<script>document.location='../pelamar/dashboard.php'</script>";
             }

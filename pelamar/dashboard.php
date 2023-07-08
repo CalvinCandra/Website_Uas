@@ -8,10 +8,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bali Job Finder</title>
+    <!-- Link AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- file Css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
-    <link rel="stylesheet" href="../pelamar/css/style2.css">
+    <link rel="stylesheet" href="../pelamar/css/style.css">
 </head>
 <body>
 <!-- Navbar -->
@@ -41,7 +43,13 @@
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                   <li>
                     <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profile<?php echo $_SESSION['id_pelamar']?>">
-                      <?php echo $_SESSION['pelamar']?>
+                      <?php 
+                        $ambilnama = mysqli_query($conn, "SELECT * FROM pelamar");
+                        $nama = mysqli_fetch_array($ambilnama);
+                        if($_SESSION['id_pelamar']){
+                            echo $nama['nama_lengkap'];
+                        }
+                      ?>
                     </a>
                   </li>
                   <li><hr class="dropdown-divider"></li>
@@ -69,87 +77,89 @@
 
 <!-- Banner -->
 <div class="container-fluid banner" id="Home">
-  <div class="text-container">
+  <div class="text-container" data-aos="fade-down-right" data-aos-duration="1500">
     <h4 class="display-6">Welcome to</h4>
     <h3 class="display-1 fw-bold">Bali Job Finder</h3>
     <h5 class="display-6">Website Lowongan Yang Membantu <br>Pelamar Mencari Pekerjaan</h5>
   </div>
   <div class="image-container">
-    <img src="img/banner-img.png" alt="" class="img-fluid">
+    <img src="img/banner-img.png" alt="" class="img-fluid" data-aos="fade-down-left" data-aos-duration="1500">
   </div>
 </div>
 
 <!-- Tips Section -->
-<div class="container-fluid tips" id="Tips">
-  <div class="container-fluid">
-   <div class="row align-items-center">
-     <div class="col-md-6 mb-4">
-      <a href="#" class="tips_logo">
-        <img src="img/tips-img.png" alt="" height="400px">
-      </a>
-     </div>
-     <div class="col-md-6">
-       <h3 class="display-4 text-center">Tips Melamar</h3>
-       <p class="">Berikut adalah tips singkat untuk melamar pekerjaan dari kami. Riset dan persiapkan diri dengan baik, perbarui resume dan surat lamaran sesuai dengan pekerjaan yang dilamar, tampilkan keahlian dan portofolio yang relevan, persiapkan diri dengan baik untuk wawancara, dan tunjukkan sikap profesional sepanjang proses melamar. Dengan menerapkan tips-tips ini, Anda dapat meningkatkan peluang sukses dalam melamar pekerjaan.</p>
-     </div>
+<section id="Tips">
+  <div class="container-fluid tips" data-aos="fade-right" data-aos-duration="1500">
+    <div class="container-fluid">
+     <div class="row align-items-center">
+       <div class="col-md-6 mb-4">
+        <a href="#" class="tips_logo">
+          <img src="img/tips-img.png" alt="" height="400px">
+        </a>
+       </div>
+       <div class="col-md-6">
+         <h3 class="display-4 text-center">Tips Melamar</h3>
+         <p class="">Berikut adalah tips singkat untuk melamar pekerjaan dari kami. Riset dan persiapkan diri dengan baik, perbarui resume dan surat lamaran sesuai dengan pekerjaan yang dilamar, tampilkan keahlian dan portofolio yang relevan, persiapkan diri dengan baik untuk wawancara, dan tunjukkan sikap profesional sepanjang proses melamar. Dengan menerapkan tips-tips ini, Anda dapat meningkatkan peluang sukses dalam melamar pekerjaan.</p>
+       </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- rekomendasi Perusahaan -->
-<div class="container">
-  <div class="judul">
+<div class="container jarak">
+  <div class="judul" data-aos="fade-right" data-aos-duration="1500">
     <h3 class="section-title text-center">Rekomendasi Perusahaan Dari kami</h3>
   </div>
   <div class="row justify-content-center align-items-center">
-    <div class="col-md-2">
+    <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
      <div class="square">
       <img src="img/blesing.png" alt="Logo 1" class="logo">
      </div>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
      <div class="square">
       <img src="img/gosha.png" alt="Logo 2" class="logo">
      </div>
     </div>
-    <div class="col-md-2">
-     <div class="square">
+    <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
+     <div class="square" >
       <img src="img/astra motor.png" alt="Logo 3" class="logo">
      </div>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
      <div class="square">
       <img src="img/gogo.png" alt="Logo 4" class="logo">
      </div>
     </div>
-    <div class="col-md-2">
-     <div class="square">
+    <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
+     <div class="square" data-aos="zoom-in-down" data-aos-duration="1500">
       <img src="img/pln.png" alt="Logo 5" class="logo">
      </div>
     </div>
    </div>
   <div class="row justify-content-center align-items-center">
-   <div class="col-md-2">
+   <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
      <div class="square">
       <img src="img/urban.png" alt="Logo 6" class="logo">
      </div>
    </div>
-   <div class="col-md-2">
+   <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
     <div class="square">
      <img src="img/atlas.png" alt="Logo 7" class="logo">
     </div>
    </div>
-   <div class="col-md-2">
+   <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
     <div class="square">
      <img src="img/keranjang.png" alt="Logo 8" class="logo">
     </div>
    </div>
-   <div class="col-md-2">
+   <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
     <div class="square">
       <img src="img/unique.png" alt="Logo 9" class="logo">
     </div>
    </div>
-   <div class="col-md-2">
+   <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
     <div class="square">
      <img src="img/khrisna.png" alt="Logo 10" class="logo">
     </div>
@@ -158,12 +168,12 @@
 </div>
 
 <!-- perkerjaan terlaris -->
-<div class="container">
-  <div class="judul">
+<div class="container jarak">
+  <div class="judul mt-5" data-aos="fade-left" data-aos-duration="1500">
     <h3 class="section-title text-center">Pekerjaan Yang Banyak Dicari</h3>
   </div>
   <div class="row justify-content-center align-items-center">
-    <div class="col-md-4">
+    <div class="col-md-4" data-aos="zoom-in-up" data-aos-duration="900">
      <div class="square-new">
       <img src="img/teknologi.jpg" alt="">
       <div class="overlay">
@@ -173,7 +183,7 @@
       </div>
      </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4" data-aos="zoom-in-up" data-aos-duration="900">
       <div class="square-new">
        <img src="img/penjul.jpg" alt="">
        <div class="overlay">
@@ -183,7 +193,7 @@
        </div>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4" data-aos="zoom-in-up" data-aos-duration="900">
      <div class="square-new">
        <img src="img/pemasar.jpg" alt="">
        <div class="overlay">
@@ -197,8 +207,8 @@
 </div>
 
 <!-- Lowongan Pekerjaan 3 Biji -->
-<section id="Lowongan">
-  <div class="judul">
+<section id="Lowongan" class="my-3">
+  <div class="judul" data-aos="fade-right" data-aos-duration="1500">
     <h3 class="section-title text-center">lowongan Pekerjaan</h3>
   </div>
 
@@ -210,7 +220,7 @@
         while($data=mysqli_fetch_array($ambildata)){
       ?>
     
-      <div class="col-md-3 m-1">
+      <div class="col-md-3 m-1" data-aos="flip-left" data-aos-duration="950">
         <div class="card h-100">
           <div class="card-image align-items-center">
             <img src="../storage/logo/<?php echo $data['logo']?>" alt="Test" width="50%">
@@ -354,17 +364,78 @@
       </div>            
     "); 
   }else{
-?>
-  <div class=" m-4 d-flex justify-content-center">
+    ?>
+  <div class=" m-4 d-flex justify-content-center my-5" data-aos="flip-left" data-aos-duration="950">
     <a href="../pelamar/detail_lowongan.php" class="btn btn-primary">Cari Lebih Banyak</a>
   </div>
 <?php 
   }
-?>
+  ?>
 
+  <?php 
+    $ambildata = mysqli_query($conn, "SELECT * FROM pelamar INNER JOIN users ON pelamar.id_users = users.id_users WHERE pelamar.id_pelamar = ".$_SESSION['id_pelamar']);
+    while($data=mysqli_fetch_array($ambildata)){
+  ?>
+  <!-- Modal Edit Profile -->
+  <div class="modal fade" id="profile<?php echo $data['id_pelamar']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Profile <?php echo $data['nama_lengkap']?></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="../pelamar/sistem_pelamar.php" method="post">
+              <input type="hidden" name="id_pelamar" value="<?php echo $data['id_pelamar']?>">
+              <input type="hidden" name="id_users" value="<?php echo $data['id_users']?>">
+  
+              <div class="form-group my-3">
+                <label for="" class="text-dark"><b> Email</b></label>
+                <input type="email" class="form-control" name="email" value="<?php echo $data['email']?>" required>
+              </div>
+  
+              <div class="form-group my-3">
+                <label for="" class="text-dark"><b> Nama Pelamar</b></label>
+                <input type="text" class="form-control" name="nama_lengkap" value="<?php echo $data['nama_lengkap']?>" required>
+              </div>
+  
+              <div class="form-group my-3">
+                <label for="" class="text-dark"><b>Lulusan Dari</b></label>
+                <input type="text" class="form-control" name="lulusan" value="<?php echo $data['lulusan']?>" required>
+              </div>
+  
+              <div class="form-group my-3">
+                <label for="" class="text-dark"><b>No Whatsapp</b></label>
+                <input type="text" class="form-control" name="no_wa" value="<?php echo $data['no_wa']?>" required>
+              </div>
+              
+              <div class="form-group my-3">
+                <label for="" class="text-dark"><b> Alamat Tinggal</b></label>
+                <textarea class="form-control" name="tempat_tinggal" id="exampleFormControlTextarea1" rows="4" required><?php echo $data['tempat_tinggal']?></textarea>
+              </div>
+  
+              <div class="form-group my-3">
+                <label for="" class="text-dark"><b> Pengalaman</b></label>
+                <textarea class="form-control" name="pengalaman" id="exampleFormControlTextarea1" rows="4" required><?php echo $data['pengalaman']?></textarea>
+              </div>
+  
+  
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="submit" name="update_profile" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  <?php
+    }
+  ?>
 
 <!-- footer -->
-<footer class="mt-3 text-white pt-5 pb-4" style="background-color : #0D6EFD ;">
+<footer class="text-white pt-5 pb-4 " style="background-color : #0D6EFD ; margin-top:5rem;" data-aos="fade-up" data-aos-duration="1000">
   <div class="container text-md-left">
     <div class="row text-md-left">
       <div class="col-5 me-5" >
@@ -412,72 +483,13 @@
 </footer>
 
 
-<?php 
-  $ambildata = mysqli_query($conn, "SELECT * FROM pelamar INNER JOIN users ON pelamar.id_users = users.id_users WHERE pelamar.id_pelamar = ".$_SESSION['id_pelamar']);
-  while($data=mysqli_fetch_array($ambildata)){
-?>
-<!-- Modal Edit Profile -->
-<div class="modal fade" id="profile<?php echo $data['id_pelamar']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Profile <?php echo $_SESSION['pelamar']?></h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form action="../pelamar/sistem_pelamar.php" method="post">
-            <input type="hidden" name="id_pelamar" value="<?php echo $data['id_pelamar']?>">
-            <input type="hidden" name="id_users" value="<?php echo $data['id_users']?>">
 
-            <div class="form-group my-3">
-              <label for="" class="text-dark"><b> Email</b></label>
-              <input type="email" class="form-control" name="email" value="<?php echo $data['email']?>" required>
-            </div>
-
-            <div class="form-group my-3">
-              <label for="" class="text-dark"><b> Nama Pelamar</b></label>
-              <input type="text" class="form-control" name="nama_lengkap" value="<?php echo $data['nama_lengkap']?>" required>
-            </div>
-
-            <div class="form-group my-3">
-              <label for="" class="text-dark"><b>Lulusan Dari</b></label>
-              <input type="text" class="form-control" name="lulusan" value="<?php echo $data['lulusan']?>" required>
-            </div>
-
-            <div class="form-group my-3">
-              <label for="" class="text-dark"><b>No Whatsapp</b></label>
-              <input type="text" class="form-control" name="no_wa" value="<?php echo $data['no_wa']?>" required>
-            </div>
-            
-            <div class="form-group my-3">
-              <label for="" class="text-dark"><b> Alamat Tinggal</b></label>
-              <textarea class="form-control" name="tempat_tinggal" id="exampleFormControlTextarea1" rows="4" required><?php echo $data['tempat_tinggal']?></textarea>
-            </div>
-
-            <div class="form-group my-3">
-              <label for="" class="text-dark"><b> Pengalaman</b></label>
-              <textarea class="form-control" name="pengalaman" id="exampleFormControlTextarea1" rows="4" required><?php echo $data['pengalaman']?></textarea>
-            </div>
-
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-              <button type="submit" name="update_profile" class="btn btn-primary">Submit</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-</div>
-
-  <?php
-  }
-  ?>
-
-
-
-
-
+<!-- Script AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Init AOS -->
+<script>
+  AOS.init();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

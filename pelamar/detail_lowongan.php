@@ -9,6 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lowongan Pekerjaan</title>
+    <!-- Link AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- file Css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
@@ -40,7 +42,17 @@
                   <i class="fa-solid fa-user-tie" style="color: #00000;"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                  <li><a class="dropdown-item" href="#"><?php echo $_SESSION['pelamar']?></a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      <?php 
+                        $ambilnama = mysqli_query($conn, "SELECT * FROM pelamar");
+                        $nama = mysqli_fetch_array($ambilnama);
+                        if($_SESSION['id_pelamar']){
+                            echo $nama['nama_lengkap'];
+                        }
+                      ?>
+                    </a>
+                  </li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="../login/logout.php">Log Out</a></li>
                 </ul>
@@ -54,7 +66,7 @@
 <!-- lowongan -->
 <section class="mt-5">
   <div class="container">
-    <div class="judul">
+    <div class="judul" data-aos="fade-right" data-aos-duration="1500">
         <h3 class="section-title text-center">Lowongan Pekerjaan</h3>
       </div>
       
@@ -62,7 +74,7 @@
       <div class="row justify-content-center">
           <!-- form search -->
           <!-- mengirim yang diinput user pada url dengan method get dan action pada file yang ingin data di search -->
-            <form class="d-flex mb-4" role="search" method="get" action="../pelamar/detail_lowongan.php">
+            <form class="d-flex" role="search" method="get" action="../pelamar/detail_lowongan.php" data-aos="flip-left" data-aos-duration="950">
                 <input class="form-control me-2" type="search" name="cari" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
@@ -100,7 +112,7 @@
 
                 while($data=mysqli_fetch_array($ambildata)){
             ?>
-            <div class="col-md-3">
+            <div class="col-md-3 my-5" data-aos="flip-left" data-aos-duration="950">
                 <div class="card h-100">
                 <div class="card-image align-items-center">
                     <img src="../storage/logo/<?php echo $data['logo']?>" alt="Test" width="50%">
@@ -197,7 +209,7 @@
 ?>
 
 <!-- Tampilan Pagination -->
-<div class="container mt-5">
+<div class="container mt-5" data-aos="flip-left" data-aos-duration="950">
     <nav aria-label="Page navigation example">
         <h1 class="fs-4">Jumlah Halaman :</h1>
         <ul class="pagination justify-content-start">
@@ -215,12 +227,12 @@
     </nav>
 </div>
 
-<div class=" m-4 d-flex justify-content-center">
+<div class=" m-4 d-flex justify-content-center"  data-aos="flip-left" data-aos-duration="950">
   <a href="../pelamar/dashboard.php" class="btn btn-primary w-50">Kembali</a>
 </div>
 
 <!-- footer -->
-<footer class="mt-3 text-white pt-5 pb-4" style="background-color : #0D6EFD ;">
+<footer class="mt-3 text-white pt-5 pb-4" style="background-color : #0D6EFD ;" data-aos="fade-up" data-aos-duration="1000">
   <div class="container text-md-left">
     <div class="row text-md-left">
       <div class="col-5 me-5" >
@@ -268,6 +280,14 @@
 </footer>
 
 
+
+
+<!-- Script AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Init AOS -->
+<script>
+  AOS.init();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
