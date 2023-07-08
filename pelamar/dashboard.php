@@ -44,7 +44,7 @@
                   <li>
                     <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profile<?php echo $_SESSION['id_pelamar']?>">
                       <?php 
-                        $ambilnama = mysqli_query($conn, "SELECT * FROM pelamar");
+                        $ambilnama = mysqli_query($conn, "SELECT * FROM pelamar WHERE id_pelamar = ".$_SESSION['id_pelamar']);
                         $nama = mysqli_fetch_array($ambilnama);
                         if($_SESSION['id_pelamar']){
                             echo $nama['nama_lengkap'];
@@ -331,7 +331,14 @@
             <input type="hidden" name="id_penyedia" value="<?php echo $data['id_penyedia']?>">
             <input type="hidden" name="id_pelamar" value="<?php echo $_SESSION['id_pelamar']?>">
             <!-- mengambil nama pelamar -->
-            <input type="hidden" name="nama_pelamar" value="<?php echo $_SESSION['pelamar']?>">
+            <?php 
+              $ambilnamapelamar = mysqli_query($conn, "SELECT * FROM pelamar WHERE id_pelamar = ".$_SESSION['id_pelamar']);
+              while($datanama = mysqli_fetch_array($ambilnama)){;
+            ?>
+              <input type="hidden" name="nama_pelamar" value="<?php echo $datanama['nama_lengkap']?>">
+            <?php
+              }
+            ?>
             
             <div class="input-group mb-3">
               <input type="file" name="cv" class="form-control" id="inputGroupFile02" required>

@@ -43,10 +43,12 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a href="../pelamar/dashboard.php" class="dropdown-item">
                       <?php 
-                        $ambilnama = mysqli_query($conn, "SELECT * FROM pelamar");
+                        // query data pelamar sesuai yang lagin
+                        $ambilnama = mysqli_query($conn, "SELECT * FROM pelamar WHERE id_pelamar = ".$_SESSION['id_pelamar']);
                         $nama = mysqli_fetch_array($ambilnama);
+                        // jika Session id ada, maka akan memunculkan nama
                         if($_SESSION['id_pelamar']){
                             echo $nama['nama_lengkap'];
                         }
@@ -187,7 +189,14 @@
             <input type="hidden" name="id_penyedia" value="<?php echo $data['id_penyedia']?>">
             <input type="hidden" name="id_pelamar" value="<?php echo $_SESSION['id_pelamar']?>">
             <!-- mengambil nama pelamar -->
-            <input type="hidden" name="nama_pelamar" value="<?php echo $_SESSION['pelamar']?>">
+            <?php 
+              $ambilnamapelamar = mysqli_query($conn, "SELECT * FROM pelamar WHERE id_pelamar = ".$_SESSION['id_pelamar']);
+              while($datanama = mysqli_fetch_array($ambilnama)){;
+            ?>
+              <input type="hidden" name="nama_pelamar" value="<?php echo $datanama['nama_lengkap']?>">
+            <?php
+              }
+            ?>
             
             <div class="input-group mb-3">
               <input type="file" name="cv" class="form-control" id="inputGroupFile02" required>
