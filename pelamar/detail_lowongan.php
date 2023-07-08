@@ -14,7 +14,7 @@
     <!-- file Css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
-    <link rel="stylesheet" href="../pelamar/css/style2.css">
+    <link rel="stylesheet" href="../pelamar/css/style.css">
 </head>
 <body>
 <!-- Navbar -->
@@ -112,7 +112,7 @@
 
                 while($data=mysqli_fetch_array($ambildata)){
             ?>
-            <div class="col-md-3 my-5" data-aos="flip-left" data-aos-duration="950">
+            <div class="col-md-3 my-4" data-aos="flip-left" data-aos-duration="950">
                 <div class="card h-100">
                 <div class="card-image align-items-center">
                     <img src="../storage/logo/<?php echo $data['logo']?>" alt="Test" width="50%">

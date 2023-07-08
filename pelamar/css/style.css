@@ -226,16 +226,26 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
    html{
-    font-size: 75%;
+    font-size: 95%;
    }
 
-   .navbar-cus{
-    transition: none;
-    margin-bottom: 50rem;
+    .navbar {
+        background-color: #fff;
+    }
+
+   .image-container img{
+    
+   }
+
+   .banner{
+    margin-top: 5rem;
    }
 
    .tips_logo img{
      display: none;
    }
+
+
+
     
 }
