@@ -1,6 +1,11 @@
 <?php
     include("../koneksi/koneksi.php");
     session_start();
+    // ngecek apakah user sudah login atau blm
+    if(!$_SESSION['id_pelamar']){
+      // header merupakan
+      header("location: ../login/login.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +22,7 @@
     <link rel="stylesheet" href="../pelamar/css/style.css">
 </head>
 <body>
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm" >
   <div class="container-fluid">
@@ -76,7 +82,7 @@
       <div class="row justify-content-center">
           <!-- form search -->
           <!-- mengirim yang diinput user pada url dengan method get dan action pada file yang ingin data di search -->
-            <form class="d-flex" role="search" method="get" action="../pelamar/detail_lowongan.php" data-aos="flip-left" data-aos-duration="950">
+            <form class="d-flex" role="search" method="get" action="../pelamar/detail_lowongan.php" data-aos="fade-up" data-aos-duration="1100">
                 <input class="form-control me-2" type="search" name="cari" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
@@ -114,7 +120,7 @@
 
                 while($data=mysqli_fetch_array($ambildata)){
             ?>
-            <div class="col-md-3 my-4" data-aos="flip-left" data-aos-duration="950">
+            <div class="col-md-3 my-4" data-aos="fade-up" data-aos-duration="1100">
                 <div class="card h-100">
                 <div class="card-image align-items-center">
                     <img src="../storage/logo/<?php echo $data['logo']?>" alt="Test" width="50%">
@@ -218,7 +224,7 @@
 ?>
 
 <!-- Tampilan Pagination -->
-<div class="container mt-5" data-aos="flip-left" data-aos-duration="950">
+<div class="container mt-5" data-aos="fade-right" data-aos-duration="1100">
     <nav aria-label="Page navigation example">
         <h1 class="fs-4">Jumlah Halaman :</h1>
         <ul class="pagination justify-content-start">
@@ -236,12 +242,12 @@
     </nav>
 </div>
 
-<div class=" m-4 d-flex justify-content-center"  data-aos="flip-left" data-aos-duration="950">
+<div class=" m-4 d-flex justify-content-center"  data-aos="fade-down" data-aos-duration="1100">
   <a href="../pelamar/dashboard.php" class="btn btn-primary w-50">Kembali</a>
 </div>
 
 <!-- footer -->
-<footer class="mt-3 text-white pt-5 pb-4" style="background-color : #0D6EFD ;" data-aos="fade-up" data-aos-duration="1000">
+<footer class="mt-3 text-white pt-5 pb-4" style="background-color : #0D6EFD ;" data-aos="fade-up" data-aos-duration="1800">
   <div class="container text-md-left">
     <div class="row text-md-left">
       <div class="col-5 me-5" >

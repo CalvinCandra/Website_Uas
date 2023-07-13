@@ -1,6 +1,12 @@
 <?php
   include("../koneksi/koneksi.php");
   session_start();
+  // ngecek apakah user sudah login atau blm
+  if(!$_SESSION['id_pelamar']){
+    // header merupakan
+    header("location: ../login/login.php");
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +83,7 @@
 
 <!-- Banner -->
 <div class="container-fluid banner" id="Home">
-  <div class="text-container" data-aos="fade-down-right" data-aos-duration="1500">
+  <div class="text-container" data-aos="fade-down-right" data-aos-duration="1800">
     <h4 class="display-6">Welcome to</h4>
     <h3 class="display-1 fw-bold">Bali Job Finder</h3>
     <h5 class="display-6">Website Lowongan Yang Membantu <br>Pelamar Mencari Pekerjaan</h5>
@@ -89,7 +95,7 @@
 
 <!-- Tips Section -->
 <section id="Tips">
-  <div class="container-fluid tips" data-aos="fade-right" data-aos-duration="1500">
+  <div class="container-fluid tips" data-aos="fade-right" data-aos-duration="1800">
     <div class="container-fluid">
      <div class="row align-items-center">
        <div class="col-md-6 mb-4">
@@ -108,58 +114,58 @@
 
 <!-- rekomendasi Perusahaan -->
 <div class="container jarak">
-  <div class="judul" data-aos="fade-right" data-aos-duration="1500">
+  <div class="judul" data-aos="fade-right" data-aos-duration="1800">
     <h3 class="section-title text-center">Rekomendasi Perusahaan Dari kami</h3>
   </div>
   <div class="row justify-content-center align-items-center">
-    <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
+    <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1800">
      <div class="square">
       <img src="img/blesing.png" alt="Logo 1" class="logo">
      </div>
     </div>
-    <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
+    <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1800">
      <div class="square">
       <img src="img/gosha.png" alt="Logo 2" class="logo">
      </div>
     </div>
-    <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
+    <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1800">
      <div class="square" >
       <img src="img/astra motor.png" alt="Logo 3" class="logo">
      </div>
     </div>
-    <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
+    <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1800">
      <div class="square">
       <img src="img/gogo.png" alt="Logo 4" class="logo">
      </div>
     </div>
-    <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
-     <div class="square" data-aos="zoom-in-down" data-aos-duration="1500">
+    <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1800">
+     <div class="square" data-aos="zoom-in-down" data-aos-duration="1800">
       <img src="img/pln.png" alt="Logo 5" class="logo">
      </div>
     </div>
    </div>
   <div class="row justify-content-center align-items-center">
-   <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
+   <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1800">
      <div class="square">
       <img src="img/urban.png" alt="Logo 6" class="logo">
      </div>
    </div>
-   <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
+   <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1800">
     <div class="square">
      <img src="img/atlas.png" alt="Logo 7" class="logo">
     </div>
    </div>
-   <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
+   <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1800">
     <div class="square">
      <img src="img/keranjang.png" alt="Logo 8" class="logo">
     </div>
    </div>
-   <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
+   <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1800">
     <div class="square">
       <img src="img/unique.png" alt="Logo 9" class="logo">
     </div>
    </div>
-   <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1500">
+   <div class="col-md-2" data-aos="zoom-in-down" data-aos-duration="1800">
     <div class="square">
      <img src="img/khrisna.png" alt="Logo 10" class="logo">
     </div>
@@ -169,11 +175,11 @@
 
 <!-- perkerjaan terlaris -->
 <div class="container jarak">
-  <div class="judul mt-5" data-aos="fade-left" data-aos-duration="1500">
+  <div class="judul mt-5" data-aos="fade-left" data-aos-duration="1800">
     <h3 class="section-title text-center">Pekerjaan Yang Banyak Dicari</h3>
   </div>
   <div class="row justify-content-center align-items-center">
-    <div class="col-md-4" data-aos="zoom-in-up" data-aos-duration="900">
+    <div class="col-md-4" data-aos="zoom-in-up" data-aos-duration="1100">
      <div class="square-new">
       <img src="img/teknologi.jpg" alt="">
       <div class="overlay">
@@ -183,7 +189,7 @@
       </div>
      </div>
     </div>
-    <div class="col-md-4" data-aos="zoom-in-up" data-aos-duration="900">
+    <div class="col-md-4" data-aos="zoom-in-up" data-aos-duration="1100">
       <div class="square-new">
        <img src="img/penjul.jpg" alt="">
        <div class="overlay">
@@ -193,7 +199,7 @@
        </div>
       </div>
     </div>
-    <div class="col-md-4" data-aos="zoom-in-up" data-aos-duration="900">
+    <div class="col-md-4" data-aos="zoom-in-up" data-aos-duration="1100">
      <div class="square-new">
        <img src="img/pemasar.jpg" alt="">
        <div class="overlay">
@@ -208,7 +214,7 @@
 
 <!-- Lowongan Pekerjaan 3 Biji -->
 <section id="Lowongan" class="my-3">
-  <div class="judul" data-aos="fade-right" data-aos-duration="1500">
+  <div class="judul" data-aos="fade-right" data-aos-duration="1800">
     <h3 class="section-title text-center">lowongan Pekerjaan</h3>
   </div>
 
@@ -220,7 +226,7 @@
         while($data=mysqli_fetch_array($ambildata)){
       ?>
     
-      <div class="col-md-3 m-1" data-aos="flip-left" data-aos-duration="950">
+      <div class="col-md-3 m-1" data-aos="fade-up" data-aos-duration="1800">
         <div class="card h-100">
           <div class="card-image align-items-center">
             <img src="../storage/logo/<?php echo $data['logo']?>" alt="Test" width="50%">
@@ -330,15 +336,6 @@
             <input type="hidden" name="id_iklan" value="<?php echo $data['id_iklan']?>">
             <input type="hidden" name="id_penyedia" value="<?php echo $data['id_penyedia']?>">
             <input type="hidden" name="id_pelamar" value="<?php echo $_SESSION['id_pelamar']?>">
-            <!-- mengambil nama pelamar -->
-            <?php 
-              $ambilnamapelamar = mysqli_query($conn, "SELECT * FROM pelamar WHERE id_pelamar = ".$_SESSION['id_pelamar']);
-              while($datanama = mysqli_fetch_array($ambilnama)){;
-            ?>
-              <input type="hidden" name="nama_pelamar" value="<?php echo $datanama['nama_lengkap']?>">
-            <?php
-              }
-            ?>
             
             <div class="input-group mb-3">
               <input type="file" name="cv" class="form-control" id="inputGroupFile02" required>
@@ -364,25 +361,27 @@
 <?php 
   $cek = mysqli_query($conn, "SELECT * FROM pelamar WHERE pelamar.id_pelamar = ".$_SESSION['id_pelamar']);
   $cek_kolom = mysqli_fetch_array($cek);
+  // melakukan pengecekan jika profil dari pelamar blm diisi
   if ($cek_kolom['pengalaman'] == NULL){
     echo("
-      <div class='m-4 d-flex justify-content-center'>
+      <div class='m-4 d-flex justify-content-center' data-aos='fade-up' data-aos-duration='1100'>
         <a href='#' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#stop'>Cari Lebih Banyak</a>
       </div>            
     "); 
   }else{
-    ?>
-  <div class=" m-4 d-flex justify-content-center my-5" data-aos="flip-left" data-aos-duration="950">
-    <a href="../pelamar/detail_lowongan.php" class="btn btn-primary">Cari Lebih Banyak</a>
-  </div>
-<?php 
+    echo("
+      <div class=' m-4 d-flex justify-content-center my-5' data-aos='fade-up' data-aos-duration='1100'>
+          <a href='../pelamar/detail_lowongan.php' class='btn btn-primary'>Cari Lebih Banyak</a>
+      </div>
+    ");
   }
-  ?>
+?>
 
-  <?php 
-    $ambildata = mysqli_query($conn, "SELECT * FROM pelamar INNER JOIN users ON pelamar.id_users = users.id_users WHERE pelamar.id_pelamar = ".$_SESSION['id_pelamar']);
-    while($data=mysqli_fetch_array($ambildata)){
-  ?>
+
+<?php 
+  $ambildata = mysqli_query($conn, "SELECT * FROM pelamar INNER JOIN users ON pelamar.id_users = users.id_users WHERE pelamar.id_pelamar = ".$_SESSION['id_pelamar']);
+  while($data=mysqli_fetch_array($ambildata)){
+?>
   <!-- Modal Edit Profile -->
   <div class="modal fade" id="profile<?php echo $data['id_pelamar']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -437,12 +436,12 @@
       </div>
   </div>
   
-  <?php
-    }
-  ?>
+<?php
+  }
+?>
 
 <!-- footer -->
-<footer class="text-white pt-5 pb-4 " style="background-color : #0D6EFD ; margin-top:5rem;" data-aos="fade-up" data-aos-duration="1000">
+<footer class="text-white pt-5 pb-4 " style="background-color : #0D6EFD ; margin-top:5rem;" data-aos="fade-up" data-aos-duration="1500">
   <div class="container text-md-left">
     <div class="row text-md-left">
       <div class="col-5 me-5" >

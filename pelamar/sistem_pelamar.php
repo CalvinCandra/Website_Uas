@@ -34,7 +34,6 @@
         $id_pelamar=$_POST['id_pelamar'];
         $id_penyedia=$_POST['id_penyedia'];
         $id_iklan=$_POST['id_iklan'];
-        $pelamar=$_POST['nama_pelamar'];
 
         // mengambil data data file
         $fileName = $_FILES['cv']['name'];
@@ -49,11 +48,13 @@
 
         if(!in_array($ekstensi , $ekstensi_boleh)){
             echo "<script>alert('Maaf, File Harus Berupa PDF');document.location='../pelamar/dashboard.php'</script>";
+            return false;
         }
 
         // melakukan pengecekan ukuran dari file
         if($fileSize > 5000000){
             echo "<script>alert('Size File Terlalu Besar, Silakan Upload File Dibawah 5 MB');document.location='../pelamar/dashboard.php'</script>";
+            return false;
         }
             
         // membuat nama baru

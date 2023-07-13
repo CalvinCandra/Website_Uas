@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    // melakukan Pengecekan jika user blm login
+    if(!$_SESSION['admin']){
+        header("location: ../login/login.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,10 +43,6 @@
                 <!-- Topbar -->
                 <?php
                     require("../admin/bahan/header.php");
-                     // melakukan Pengecekan Jika User Belum Login
-                    if(!$_SESSION['admin']){
-                        echo "<script>document.location='../login.php'</script>";
-                    }
                 ?>
                 <!-- End of Topbar -->
 

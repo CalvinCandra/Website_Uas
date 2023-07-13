@@ -1,5 +1,10 @@
 <?php
     include('../koneksi/koneksi.php');
+    session_start();
+    // melakukan Pengecekan jika user blm login
+    if(!$_SESSION['admin']){
+        header("location: ../login/login.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -51,26 +56,28 @@
                         <h1 class="h3 mb-0 text-gray-800">Daftar Lowongan</h1>
                     </div>
                     <?php 
-                        // @$success = $_GET['success'];
-                        // @$error = $_GET['error'];
-                        // if($success)
-                        // {             
-                        //     echo ('<div class="alert alert-success alert-dismissible fade show" role="alert">
-                        //             <strong>Success!</strong> '.$success.' 
-                        //             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        //                 <span aria-hidden="true">&times;</span>
-                        //             </button>
-                        //         </div>');
-                        // }
-                        // if($error)
-                        // {             
-                        //     echo ('<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        //             <strong>Error!</strong> '.$error.' 
-                        //             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        //             <span aria-hidden="true">&times;</span>
-                        //             </button>
-                        //         </div>');
-                        // }
+                        // kita ambil data dari url sesuai dengan pesan, antara success atau error
+                        // dengan mneggunakan fungsi $_GET
+                        @$success = $_GET['success'];
+                        @$error = $_GET['error'];
+                        if($success)
+                        {             
+                            echo ('<div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>Success!</strong> '.$success.' 
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>');
+                        }
+                        if($error)
+                        {             
+                            echo ('<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <strong>Error!</strong> '.$error.' 
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>');
+                        }
                     ?>
 
                     <!-- table -->
@@ -112,7 +119,7 @@
                                           $posisi = ($halaman - 1)*$batas;
                                       }
                                       
-                                      // query tb admin untuk mengecek data
+                                      // memilih data dengan syntax SELECT yang disimpan pada $query
                                       $query = mysqli_query($conn, "SELECT * FROM iklan");
                                       $jmldata = mysqli_num_rows($query);
 
@@ -120,7 +127,7 @@
                                       $jmlhalaman = ceil($jmldata/$batas);
 
                                       // mengambil data cari dari url yang dikirim sebelumnya
-                                      // jika ada yang dicari ada, maka akan menampilkan data sesuai inputan user, jika inputan == NULL maka akan menampilkan hal yang sama seperti sebelumnya
+                                      // jika yang dicari ada, maka akan menampilkan data sesuai inputan user, jika inputan == NULL maka akan menampilkan hal yang sama seperti sebelumnya
                                       if(isset($_GET['cari'])){
                                         $cari=$_GET['cari'];
                                         $ambildata=mysqli_query($conn, "SELECT * FROM iklan INNER JOIN penyedia ON iklan.id_penyedia = penyedia.id_penyedia WHERE nama_perusahaan OR jabatan LIKE '%".$cari."%' ORDER by id_iklan DESC LIMIT $posisi, $batas");

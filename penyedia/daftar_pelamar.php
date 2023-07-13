@@ -1,5 +1,10 @@
 <?php
     include('../koneksi/koneksi.php');
+    session_start();
+    // melakukan Pengecekan jika user blm login
+    if(!$_SESSION['penyedia']){
+        header("location: ../login/login.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -88,8 +93,9 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Email</th>
+                                            <th class="col-2">Email</th>
                                             <th>Nama Pelamar</th>
+                                            <th>Pengalaman Pelamar</th>
                                             <th>Posisi Yang Dilamar</th>
                                             <th>Cv</th>
                                             <th>Action</th>
@@ -151,6 +157,7 @@
                                             <td><?php echo $i++?></td>
                                             <td><?php echo $data['email']?></td>
                                             <td><?php echo $data['nama_lengkap']?></td>
+                                            <td><?php echo $data['pengalaman']?></td>
                                             <td><?php echo $data['jabatan']?></td>
                                             <td>
                                               <a href="../storage/cv/<?php echo $data['cv']?>" target="__blank">

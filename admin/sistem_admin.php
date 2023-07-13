@@ -104,6 +104,7 @@ if(isset($_POST['addpenyedia'])){
     // melakukan pengecekan ukuran dari logo
     if($fotoSize > 5000000){
       echo "<script>alert('Size Logo Terlalu Besar, Silakan Upload Logo Dibawah 5 MB');</script>";
+      return false;
     }
         
   

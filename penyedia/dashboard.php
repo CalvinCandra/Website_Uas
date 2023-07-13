@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    // melakukan Pengecekan jika user blm login
+    if(!$_SESSION['penyedia']){
+        header("location: ../login/login.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,10 +43,6 @@
                 <!-- Topbar -->
                 <?php
                     require("../penyedia/bahan/header.php");
-                     // melakukan Pengecekan Jika User Belum Login
-                    if(!$_SESSION['penyedia']){
-                        echo "<script>document.location='../login.php'</script>";
-                    }
                 ?>
                 <!-- End of Topbar -->
 
@@ -50,6 +53,16 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
                     </div>
+
+                    <?php 
+                        @$success = $_GET['success'];
+                        if($success)
+                        {             
+                            echo ('<div class="alert alert-success" role="alert">
+                                        '.$success.'
+                                    </div>');
+                        }
+                    ?>
 
                     <!-- Content Row -->
                     <div class="row">
