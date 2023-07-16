@@ -78,7 +78,6 @@
         <h3 class="section-title text-center">Lowongan Pekerjaan</h3>
       </div>
       
-      
       <div class="row justify-content-center">
           <!-- form search -->
           <!-- mengirim yang diinput user pada url dengan method get dan action pada file yang ingin data di search -->
@@ -101,8 +100,8 @@
                     $posisi = ($halaman - 1)*$batas;
                 }
                 
-                // query tb admin untuk mengecek data
                 $query = mysqli_query($conn, "SELECT * FROM iklan");
+                 // menghitung jumlah bari dari hasil query dengan fungsi mysqli_num_rows()
                 $jmldata = mysqli_num_rows($query);
 
                 //melakukan pembagian antara $jmldata dengan $batas, dan nanti akan dibulatkan menggunakan fungsi ceil() 
@@ -118,27 +117,28 @@
                   $ambildata = mysqli_query($conn, "SELECT * FROM iklan INNER JOIN penyedia ON iklan.id_penyedia = penyedia.id_penyedia ORDER BY id_iklan DESC LIMIT $batas");
                 }
 
+                // mengembalikan data sebagai array numberik dan asosiatif dengan fungsi mysqli_fetch_array();
                 while($data=mysqli_fetch_array($ambildata)){
             ?>
-            <div class="col-md-3 my-4" data-aos="fade-up" data-aos-duration="1100">
-                <div class="card h-100">
-                <div class="card-image align-items-center">
-                    <img src="../storage/logo/<?php echo $data['logo']?>" alt="Test" width="50%">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title font-weight-bold fw-bold"><?php echo $data['jabatan']?></h5>
-                    <h4 class="card-subtitle font-weight-light mb-3"><?php echo $data['nama_perusahaan']?></h4>
-                    <p class="text-primary fs-5"><i class="fa-sharp fa-solid fa-location-dot me-2" style="color: #0D6EFD;"></i><?php echo $data['kota']?></p>
-                    <p>Cek Detail Untuk Lihat Syarat & Salary</p>
-                    <div class="d-flex justify-content-center">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detail<?php echo $data['id_iklan']?>">
-                        Cek Details
-                    </button>
-                    </div>
-                </div>
-                </div>
-            </div>
+              <div class="col-md-3 my-4" data-aos="fade-up" data-aos-duration="1100">
+                  <div class="card h-100">
+                  <div class="card-image align-items-center">
+                      <img src="../storage/logo/<?php echo $data['logo']?>" alt="Test" width="50%">
+                  </div>
+                  <div class="card-body">
+                      <h5 class="card-title font-weight-bold fw-bold"><?php echo $data['jabatan']?></h5>
+                      <h4 class="card-subtitle font-weight-light mb-3"><?php echo $data['nama_perusahaan']?></h4>
+                      <p class="text-primary fs-5"><i class="fa-sharp fa-solid fa-location-dot me-2" style="color: #0D6EFD;"></i><?php echo $data['kota']?></p>
+                      <p>Cek Detail Untuk Lihat Syarat & Salary</p>
+                      <div class="d-flex justify-content-center">
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detail<?php echo $data['id_iklan']?>">
+                          Cek Details
+                      </button>
+                      </div>
+                  </div>
+                  </div>
+              </div>
             <?php
             }
             ?>
@@ -242,6 +242,7 @@
     </nav>
 </div>
 
+<!-- tombol kembali -->
 <div class=" m-4 d-flex justify-content-center"  data-aos="fade-down" data-aos-duration="1100">
   <a href="../pelamar/dashboard.php" class="btn btn-primary w-50">Kembali</a>
 </div>
@@ -293,8 +294,6 @@
       </div>
   </div>
 </footer>
-
-
 
 
 <!-- Script AOS -->

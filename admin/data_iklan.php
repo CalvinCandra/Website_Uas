@@ -56,8 +56,6 @@
                         <h1 class="h3 mb-0 text-gray-800">Daftar Lowongan</h1>
                     </div>
                     <?php 
-                        // kita ambil data dari url sesuai dengan pesan, antara success atau error
-                        // dengan mneggunakan fungsi $_GET
                         @$success = $_GET['success'];
                         @$error = $_GET['error'];
                         if($success)
@@ -119,8 +117,8 @@
                                           $posisi = ($halaman - 1)*$batas;
                                       }
                                       
-                                      // memilih data dengan syntax SELECT yang disimpan pada $query
                                       $query = mysqli_query($conn, "SELECT * FROM iklan");
+                                      //menghitung jumlah baris dari hasil query dengan fungsi mysqli_num_rows()
                                       $jmldata = mysqli_num_rows($query);
 
                                       //melakukan pembagian antara $jmldata dengan $batas, dan nanti akan dibulatkan menggunakan fungsi ceil() 
@@ -137,7 +135,8 @@
                                       }
 
 
-                                      $i=1;
+                                      $i=$halaman_awal1;
+                                      // mengembalikan data sebagai array numberik dan asosiatif dengan fungsi mysqli_fetch_array();
                                       while($data=mysqli_fetch_array($ambildata)){
                                 
                                     ?>
@@ -157,6 +156,7 @@
                                             </td>
                                         </tr>
                                     </tbody>
+
                                      <!-- DETAIL Modal -->
                                      <div class="modal fade" id="detail<?=$data['id_iklan']?>" tabindex="-1" aria-labelledby="exampleModalLabel"
                                       aria-hidden="true">
@@ -277,7 +277,7 @@
 
 
 <?php
-  // ======================================================== FUNCTION UNTUK RUPIAH =======================================================
+// ======================================================== FUNCTION UNTUK RUPIAH =======================================================
 function tambahrp($angka){
   $rupiah ='Rp. '.number_format($angka,0,',','.');
   return $rupiah;

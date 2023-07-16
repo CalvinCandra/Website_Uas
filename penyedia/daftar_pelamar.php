@@ -118,8 +118,8 @@
                                            $posisi = ($halaman - 1)*$batas;
                                        }
                                        
-                                       // query tb admin untuk mengecek data
                                        $query = mysqli_query($conn, "SELECT * FROM pengajuan WHERE pengajuan.id_penyedia = ".$_SESSION['id']);
+                                       //menghitung jumlah bari dari hasil query dengan fungsi mysqli_num_rows()
                                        $jmldata = mysqli_num_rows($query);
  
                                        //melakukan pembagian antara $jmldata dengan $batas, dan nanti akan dibulatkan menggunakan fungsi ceil() 
@@ -147,8 +147,8 @@
                                                                     WHERE pengajuan.id_penyedia = $perusahaan LIMIT $posisi, $batas");
                                       }
 
-                                      
                                       $i=$halaman_awal+1;
+                                      // mengembalikan data sebagai array numberik dan asosiatif dengan fungsi mysqli_fetch_array();
                                       while($data=mysqli_fetch_array($ambildata)){
                                 
                                     ?>

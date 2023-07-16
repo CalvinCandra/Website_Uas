@@ -2,7 +2,7 @@
     include("../koneksi/koneksi.php");
 
     // ========================================================= ADD LOWONGAN ===============================================================
-    // jika tombol dengan name addiklan di tekan
+    // jika variabel addiklan sudah didefinisikan / jika tombol addiklan ditekan
     if(isset($_POST['addiklan'])){
         // simpan inputan user ke dalam variable seperti berikut
         $id_penyedia=$_POST['id_penyedia'];
@@ -46,7 +46,6 @@
     }
 
     // ========================================================= DELETE LOWONGAN ===============================================================
-    // jika tombol dengan name updateadmin di tekan
     if(isset($_POST['deletelowowngan'])){
         // simpan inputan user ke dalam variable seperti berikut
         $id_iklan=$_POST['id_iklan'];
@@ -62,8 +61,7 @@
         }
     }
 
-    // ========================================================= Fungsi Pelamar ===============================================================
-    // jika tombol dengan name hilang di tekan
+    // ========================================================= Hilang Pelamar ===============================================================
     if(isset($_POST['hilang'])){
         // simpan inputan user ke dalam variable seperti berikut
         $id_pengajuan=$_POST['id_pengajuan'];

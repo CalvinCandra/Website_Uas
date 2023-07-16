@@ -122,8 +122,8 @@
                                           $posisi = ($halaman - 1)*$batas;
                                       }
                                       
-                                      // query tb admin untuk mengecek data
                                       $query = mysqli_query($conn, "SELECT * FROM penyedia");
+                                      //menghitung jumlah baris dari hasil query dengan fungsi mysqli_num_rows()
                                       $jmldata = mysqli_num_rows($query);
 
                                       //melakukan pembagian antara $jmldata dengan $batas, dan nanti akan dibulatkan menggunakan fungsi ceil() 
@@ -141,6 +141,7 @@
 
 
                                       $i=$halaman_awal+1;
+                                      // mengembalikan data sebagai array numberik dan asosiatif dengan fungsi mysqli_fetch_array();
                                       while($data=mysqli_fetch_array($ambildata)){
                                 
                                     ?>
@@ -287,7 +288,7 @@
                               </div>
                               <div class="form-group">
                                   <label for="" class="text-dark"><b> Logo Perusahaan</b></label> <br>
-                                  <input type="file" name="logo" id="logo">
+                                  <input type="file" name="logo" id="logo" required>
                               </div>
                               <div class="form-group">
                                 <label for="" class="text-dark"><b> Passwrod Perusahaan</b></label>

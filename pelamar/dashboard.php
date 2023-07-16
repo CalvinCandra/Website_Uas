@@ -68,17 +68,17 @@
 </nav>
 <script>
   window.addEventListener('scroll', function() {
-  var navbar = document.querySelector('.navbar');
-  var bannerHeight = document.querySelector('.banner').offsetHeight;
+    var navbar = document.querySelector('.navbar');
+    var bannerHeight = document.querySelector('.banner').offsetHeight;
 
-  if (window.pageYOffset > bannerHeight) {
-    navbar.classList.add('navbar-scrolled');
-    navbar.classList.remove('navbar-transparent');
-  } else {
-    navbar.classList.remove('navbar-scrolled');
-    navbar.classList.add('navbar-transparent');
-  }
-});
+    if (window.pageYOffset > bannerHeight) {
+      navbar.classList.add('navbar-scrolled');
+      navbar.classList.remove('navbar-transparent');
+    } else {
+      navbar.classList.remove('navbar-scrolled');
+      navbar.classList.add('navbar-transparent');
+    }
+  });
 </script>
 
 <!-- Banner -->
@@ -221,8 +221,10 @@
   <div class="container">
     <div class="row justify-content-center">
       <?php
+        // menentukan batas
         $batas = 3;
         $ambildata = mysqli_query($conn, "SELECT * FROM iklan INNER JOIN penyedia ON iklan.id_penyedia = penyedia.id_penyedia ORDER BY id_iklan DESC LIMIT $batas");
+        // mengembalikan data sebagai array numberik dan asosiatif dengan fungsi mysqli_fetch_array();
         while($data=mysqli_fetch_array($ambildata)){
       ?>
     
@@ -239,7 +241,8 @@
             <div class="d-flex justify-content-center">
               <?php 
                 $cek = mysqli_query($conn, "SELECT * FROM pelamar WHERE pelamar.id_pelamar = ".$_SESSION['id_pelamar']);
-                $cek_kolom = mysqli_fetch_array($cek);
+                // mengembalikan data sebagai array asosiatif dengan fungsi mysqli_fetch_assoc();
+                $cek_kolom = mysqli_fetch_assoc($cek);
                 if ($cek_kolom['pengalaman'] == NULL){
                   echo("
                     <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#stop'>
@@ -247,12 +250,12 @@
                     </button>
                   "); 
                 }else{
-
-                
               ?>
+
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detail<?php echo $data['id_iklan']?>">
                   Cek Details
                 </button>
+
               <?php 
                 }
               ?>
@@ -267,6 +270,28 @@
     </div> 
   </div>
 </section>
+
+
+<!-- tombol Lihat Lebih Banyak -->
+<?php 
+  $cek = mysqli_query($conn, "SELECT * FROM pelamar WHERE pelamar.id_pelamar = ".$_SESSION['id_pelamar']);
+  $cek_kolom = mysqli_fetch_assoc($cek);
+  // melakukan pengecekan jika profil dari pelamar blm diisi
+  if ($cek_kolom['pengalaman'] == NULL){
+    echo("
+      <div class='m-4 d-flex justify-content-center' data-aos='fade-up' data-aos-duration='1100'>
+        <a href='#' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#stop'>Cari Lebih Banyak</a>
+      </div>            
+    "); 
+  }else{
+    echo("
+      <div class=' m-4 d-flex justify-content-center my-5' data-aos='fade-up' data-aos-duration='1100'>
+          <a href='../pelamar/detail_lowongan.php' class='btn btn-primary'>Cari Lebih Banyak</a>
+      </div>
+    ");
+  }
+?>
+
 
 <!-- Modal Pemberitahuan Untuk Pelamar-->
 <div class="modal fade" id="stop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
@@ -287,12 +312,11 @@
   </div>
 </div>
 
-
+<!-- Modal upload Cv-->
 <?php
   $ambildata = mysqli_query($conn, "SELECT * FROM iklan INNER JOIN penyedia ON iklan.id_penyedia = penyedia.id_penyedia");
   while($data=mysqli_fetch_array($ambildata)){
 ?>
-  <!-- Modal Uplaod Cv-->
   <div class="modal fade" id="detail<?php echo $data['id_iklan']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
@@ -356,33 +380,12 @@
   }
 ?>
 
-
-<!-- tombol Lihat Lebih Banyak -->
-<?php 
-  $cek = mysqli_query($conn, "SELECT * FROM pelamar WHERE pelamar.id_pelamar = ".$_SESSION['id_pelamar']);
-  $cek_kolom = mysqli_fetch_array($cek);
-  // melakukan pengecekan jika profil dari pelamar blm diisi
-  if ($cek_kolom['pengalaman'] == NULL){
-    echo("
-      <div class='m-4 d-flex justify-content-center' data-aos='fade-up' data-aos-duration='1100'>
-        <a href='#' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#stop'>Cari Lebih Banyak</a>
-      </div>            
-    "); 
-  }else{
-    echo("
-      <div class=' m-4 d-flex justify-content-center my-5' data-aos='fade-up' data-aos-duration='1100'>
-          <a href='../pelamar/detail_lowongan.php' class='btn btn-primary'>Cari Lebih Banyak</a>
-      </div>
-    ");
-  }
-?>
-
-
+<!-- Modal Edit Profile -->
 <?php 
   $ambildata = mysqli_query($conn, "SELECT * FROM pelamar INNER JOIN users ON pelamar.id_users = users.id_users WHERE pelamar.id_pelamar = ".$_SESSION['id_pelamar']);
   while($data=mysqli_fetch_array($ambildata)){
 ?>
-  <!-- Modal Edit Profile -->
+
   <div class="modal fade" id="profile<?php echo $data['id_pelamar']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
@@ -487,7 +490,6 @@
       </div>
   </div>
 </footer>
-
 
 
 <!-- Script AOS -->

@@ -104,10 +104,10 @@
                                     </thead>
                                     <?php
                                     // menentukan batasan
-                                      $batas = 4;
+                                      $batas = 5;
                                       // mengambil pesan halama dari url menggunakan method GET
                                       $halaman = @$_GET['halaman'];
-                                      // berfungsi untuk meentukan halamanan awal dari data, jika 1 maka akan di buat 0, jika halaman lebih dari 1
+                                      // berfungsi untuk menentukan halamanan awal dari data, jika 1 maka akan di buat 0, jika halaman lebih dari 1
                                       // maka $halaman akan di kali batas dan dikurang batas
                                       $halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;
                                       // pengecekan jika $halaman kosong maka $posisi akan 0
@@ -119,8 +119,8 @@
                                           $posisi = ($halaman - 1)*$batas;
                                       }
                                       
-                                      // query tb admin untuk mengecek data
                                       $query = mysqli_query($conn, "SELECT * FROM admin");
+                                       //menghitung jumlah baris dari hasil query dengan fungsi mysqli_num_rows()
                                       $jmldata = mysqli_num_rows($query);
 
                                       //melakukan pembagian antara $jmldata dengan $batas, dan nanti akan dibulatkan menggunakan fungsi ceil() 
@@ -138,6 +138,7 @@
                                       }
 
                                       $i=$halaman_awal+1;
+                                      // mengembalikan data sebagai array numberik dan asosiatif dengan fungsi mysqli_fetch_array();
                                       while($data=mysqli_fetch_array($ambildata)){
                                 
                                     ?>

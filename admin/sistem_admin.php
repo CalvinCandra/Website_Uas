@@ -5,7 +5,7 @@ include("../koneksi/koneksi.php");
 // ====================================== DASHBOARD ADMIN
 // ======================================================================= ADMIN | CREATE =========================================
 
-// jika tombol dengan name addadmin di tekan
+// jika variabel addadmin sudah didefinisikan / jika tombol addadmin ditekan
 if(isset($_POST['addadmin'])){
   // simpan inputan user ke dalam variable seperti berikut
     $user = $_POST['nama'];
@@ -18,7 +18,7 @@ if(isset($_POST['addadmin'])){
     $query .= "SET @last_id_in_users = LAST_INSERT_ID();";
     $query .= "INSERT INTO admin (id_users, nama_lengkap) VALUES (@last_id_in_users, '$user');";
   
-    // melakukan multiquery untuk memasukan data ke dalam tb users dan tb admin
+    // melakukan eksekusi beberapa query dengan fungsi mysqli_multi_query()
     if(mysqli_multi_query($conn, $query)){
         echo "<script>document.location='../admin/akun_admin.php?success= Akun Admin Berhasil Di Tambah'</script>";
     }else{
@@ -28,7 +28,7 @@ if(isset($_POST['addadmin'])){
 }
   
 // ========================================================== ADMIN || UPDATE ======================================================
-// jika tombol dengan name updateadmin di tekan
+// jika variabel updateadmin sudah didefinisikan / jika tombol updateadmin ditekan
 if(isset($_POST['updateadmin'])){
   // simpan inputan user ke dalam variable seperti berikut
     $id_user = $_POST['id_users'];
@@ -49,7 +49,7 @@ if(isset($_POST['updateadmin'])){
 }
   
   //============================================================ ADMIN | DELETE ==================================================== 
-  // jika tombol dengan name updateadmin di tekan
+ // jika variabel deleteadmin sudah didefinisikan / jika tombol deleteadmin ditekan
 if(isset($_POST['deleteadmin'])){
     // simpan inputan user ke dalam variable seperti berikut
     $id_admin = $_POST['id_admin'];
@@ -69,7 +69,6 @@ if(isset($_POST['deleteadmin'])){
 }
 
 // ================================================================ ADMIN || PERUSAHAAN | CREATE ==============================================
-// jika tombol dengan name addpenyedia di tekan
 if(isset($_POST['addpenyedia'])){
 
     // simpan inputan user ke dalam variable seperti berikut
@@ -80,15 +79,10 @@ if(isset($_POST['addpenyedia'])){
     $kota = $_POST['kota'];
     $alamat = $_POST['alamat'];
 
-    // mengambil data data logo
+    // mengambil data data file berupa nama file, tempat penyimpanan sementara dan size
     $fotoName = $_FILES['logo']['name'];
     $fotoTmp = $_FILES['logo']['tmp_name'];
     $fotoSize = $_FILES['logo']['size'];
-
-    // pengecekan kalau gambar blm di upload atau tidak
-    if($fotoName == ""){
-      echo "<script>alert('Maaf Logo Belum Di Upload');</script>";
-    }
 
     //yang boleh di upload hanya gambar
     $ekstensi_boleh=['jpg','jpeg','png'];
@@ -113,14 +107,14 @@ if(isset($_POST['addpenyedia'])){
     // megabungkan nama penanda (yang LOGO) dengan nama asli dari file foto
     $fotoNameBaru = $Nama. '_' .$fotoName;
      
+    // memindahkan file ke tempat lokasi yang telah kita sediakan
     move_uploaded_file($fotoTmp, '../storage/logo/' .$fotoNameBaru);
         
-     // query
     $query = "INSERT INTO users (email, password, role) VALUES ('$email', '$password', '$role');";
     $query .= "SET @last_id_in_users = LAST_INSERT_ID();";
     $query .= "INSERT INTO penyedia (id_users, nama_perusahaan, logo, kota, alamat) VALUES (@last_id_in_users, '$nama', '$fotoNameBaru', '$kota', '$alamat');";
   
-    // melakukan multiquery untuk memasukan data ke dalam tb users dan tb penyedia
+     // melakukan eksekusi beberapa query dengan fungsi mysqli_multi_query()
     if(mysqli_multi_query($conn, $query)){
         echo "<script>document.location='../admin/akun_penyedia.php?success=Akun Perusahaan Berhasil Ditambah'</script>";
     }else{
@@ -149,6 +143,7 @@ if(isset($_POST['updatepenyedia'])){
       // Ngecek Ukuran File
       if($fotoSize > 5000000){
         echo "<script>alert('Size Logo Terlalu Besar, Silakan Upload Logo Dibawah 5 MB');</script>";
+        return false;
       }
 
       //yang boleh di upload hanya gambar
@@ -170,7 +165,6 @@ if(isset($_POST['updatepenyedia'])){
       
       move_uploaded_file($fotoTmp, '..storage/logo/' .$fotoNameBaru);
 
-      // query
       $update_penyedia =mysqli_query($conn, "UPDATE penyedia SET nama_perusahaan='$nama', logo='$fotoNameBaru', kota='$kota', alamat='$alamat' WHERE id_penyedia ='$id_penyedia'");
       $update_users =mysqli_query($conn, "UPDATE users SET email='$email' where id_users ='$id_user'");
       
@@ -181,11 +175,9 @@ if(isset($_POST['updatepenyedia'])){
         echo "<script>document.location='../admin/akun_penyedia.php?error=Akun Perusahaan Berhasil Di Update'</script>";
       }  
 
+    // jika Gambar tidak di upload ulang
     }else{
 
-      // jika Gambar tidak di upload ulang
-
-      // query
       $update_penyedia =mysqli_query($conn, "UPDATE penyedia SET nama_perusahaan='$nama', alamat='$alamat' WHERE id_penyedia ='$id_penyedia'");
       $update_users =mysqli_query($conn, "UPDATE users SET email='$email' where id_users ='$id_user'");
     
@@ -201,13 +193,11 @@ if(isset($_POST['updatepenyedia'])){
 }
   
 //===================================================== ADMIN || PERUSAHAAN | HAPUS =========================================================== 
-// jika tombol dengan name deletepenyedia di tekan
 if(isset($_POST['deletepenyedia'])){
     // simpan inputan user ke dalam variable seperti berikut
     $id_penyedia = $_POST['id_penyedia'];
     $id_users = $_POST['id_users'];
 
-     // query
     $hapus_penyedia=mysqli_query($conn, "DELETE FROM penyedia WHERE id_penyedia='$id_penyedia'");
     $hapus_users=mysqli_query($conn, "DELETE FROM users WHERE id_users='$id_users'");
   
@@ -222,7 +212,6 @@ if(isset($_POST['deletepenyedia'])){
 
 
 // ================================================= ADMIN || PELAMAR | UPDATE ===========================================================
-// jika tombol dengan name updatepelamar di tekan
 if(isset($_POST['updatepelamar'])){
     // simpan inputan user ke dalam variable seperti berikut
     $id_user = $_POST['id_users'];
@@ -234,7 +223,6 @@ if(isset($_POST['updatepelamar'])){
     $tempat_tinggal = $_POST['tempat_tinggal'];
     $pengalaman = $_POST['pengalaman'];
 
-    // query
     $update_pelamar =mysqli_query($conn, "UPDATE pelamar SET nama_lengkap='$nama', lulusan='$lulusan', no_wa='$no', tempat_tinggal='$tinggal', pengalaman='$pengalaman' WHERE id_pelamar ='$id_pelamar'");
     $update_users =mysqli_query($conn, "UPDATE users SET email='$email' where id_users ='$id_user'");
   
@@ -247,13 +235,11 @@ if(isset($_POST['updatepelamar'])){
 }
   
 //================================================ ADMIN || PELAMAR | DELETE ============================================================ 
-// jika tombol dengan name deletepelamar di tekan
 if(isset($_POST['deletepelamar'])){
     // simpan inputan user ke dalam variable seperti berikut
     $id_pelamar = $_POST['id_pelamar'];
     $id_users = $_POST['id_user'];
   
-     // query
     $hapus_pelamar=mysqli_query($conn, "DELETE FROM pelamar WHERE id_pelamar='$id_pelamar'");
     $hapus_users=mysqli_query($conn, "DELETE FROM users WHERE id_users='$id_users'");
   
@@ -267,12 +253,10 @@ if(isset($_POST['deletepelamar'])){
 }
 
 //================================================ ADMIN || DATA LOWONGAN | DELETE ============================================================ 
-// jika tombol dengan name deletelowongan di tekan
 if(isset($_POST['deletelowongan'])){
   // simpan inputan user ke dalam variable seperti berikut
   $id_iklan=$_POST['id_iklan'];
   
-   // query
   $hapus_iklan = mysqli_query($conn, "DELETE FROM iklan WHERE id_iklan = '$id_iklan'");
 
   // jika query di atas berhasil
