@@ -111,10 +111,10 @@
                 // jika ada yang dicari ada, maka akan menampilkan data sesuai inputan user, jika inputan == NULL maka akan menampilkan hal yang sama seperti sebelumnya
                 if(isset($_GET['cari'])){
                   $cari=$_GET['cari'];
-                  $ambildata=mysqli_query($conn, "SELECT * FROM iklan INNER JOIN penyedia ON iklan.id_penyedia = penyedia.id_penyedia WHERE jabatan LIKE '%".$cari."%' OR nama_perusahaan LIKE '%".$cari."%' ORDER BY id_iklan DESC LIMIT $batas");
+                  $ambildata=mysqli_query($conn, "SELECT * FROM iklan INNER JOIN penyedia ON iklan.id_penyedia = penyedia.id_penyedia WHERE jabatan LIKE '%".$cari."%' OR nama_perusahaan LIKE '%".$cari."%' ORDER BY id_iklan DESC LIMIT $posisi, $batas");
                 }else{
                   // jika inputan tidak dikirim, akan menampilkan berikut
-                  $ambildata = mysqli_query($conn, "SELECT * FROM iklan INNER JOIN penyedia ON iklan.id_penyedia = penyedia.id_penyedia ORDER BY id_iklan DESC LIMIT $batas");
+                  $ambildata = mysqli_query($conn, "SELECT * FROM iklan INNER JOIN penyedia ON iklan.id_penyedia = penyedia.id_penyedia ORDER BY id_iklan DESC LIMIT $posisi, $batas");
                 }
 
                 // mengembalikan data sebagai array numberik dan asosiatif dengan fungsi mysqli_fetch_array();
@@ -195,14 +195,7 @@
             <input type="hidden" name="id_penyedia" value="<?php echo $data['id_penyedia']?>">
             <input type="hidden" name="id_pelamar" value="<?php echo $_SESSION['id_pelamar']?>">
             <!-- mengambil nama pelamar -->
-            <?php 
-              $ambilnamapelamar = mysqli_query($conn, "SELECT * FROM pelamar WHERE id_pelamar = ".$_SESSION['id_pelamar']);
-              while($datanama = mysqli_fetch_array($ambilnama)){;
-            ?>
-              <input type="hidden" name="nama_pelamar" value="<?php echo $datanama['nama_lengkap']?>">
-            <?php
-              }
-            ?>
+            
             
             <div class="input-group mb-3">
               <input type="file" name="cv" class="form-control" id="inputGroupFile02" required>

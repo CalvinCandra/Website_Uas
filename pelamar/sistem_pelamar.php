@@ -34,7 +34,7 @@
         $id_pelamar=$_POST['id_pelamar'];
         $id_penyedia=$_POST['id_penyedia'];
         $id_iklan=$_POST['id_iklan'];
-
+        
         // mengambil data data file
         $fileName = $_FILES['cv']['name'];
         $fileTmp = $_FILES['cv']['tmp_name'];
@@ -59,8 +59,14 @@
             
         // membuat nama baru
         $Nama="CV";
+
+        // mengambil data nama pelamar
+        $ambildatapelamar = mysqli_query($conn, "SELECT * FROM pelamar WHERE id_pelamar= $id_pelamar");
+        $data = mysqli_fetch_assoc($ambildatapelamar);
+        $nama_pelamar = $data["nama_lengkap"];
+        
         // megabungkan nama penanda (yang CV dan nama pelamar) dengan nama asli dari file
-        $fileNameBaru = $Nama. '_' .$pelamar. '_' .$fileName;
+        $fileNameBaru = $Nama. '_' .$nama_pelamar. '_' .$fileName;
         
         move_uploaded_file($fileTmp, '../storage/cv/' .$fileNameBaru);
 
